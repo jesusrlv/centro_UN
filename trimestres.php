@@ -87,12 +87,12 @@
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
-        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="#" class="nav-link py-3 border-bottom" aria-current="page" title="Carga de archivos" data-bs-toggle="tooltip" data-bs-placement="right">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"/></svg>
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="#" class="nav-link active py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           <svg class="bi" width="24" height="24"><use xlink:href="#speedometer2"/></svg>
         </a>
       </li>
@@ -131,8 +131,9 @@
 <div class="container py-4">
   <div class="p-5 mb-4 bg-light rounded-3">
       <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1>
+        <h1 class="display-5 fw-bold">Listado de archivos</h1>
         <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p>
+        <hr>
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-striped table-hover">
                 <thead class="table-dark">
