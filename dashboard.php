@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <title>Título</title>
-  <link rel="icon" type="image/png" href="img/icon.ico"/>
+<link rel="shortcut icon" type="image/png" href="img/icono.png" sizes="32x32">
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
