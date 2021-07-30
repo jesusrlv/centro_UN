@@ -106,7 +106,9 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1>
         <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p>
-        <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a>
+        <hr>
+        <p class="col-md-8 fs-4 lead text-muted"><i class="bi bi-file-earmark-plus-fill"></i> Carga de documentos</p>
+        <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</button>
       </div>
     </div>
 </div>
