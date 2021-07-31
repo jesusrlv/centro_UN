@@ -8,6 +8,7 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
@@ -16,11 +17,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/features/">
 
   <script src="../css/sidebars.js"></script>
 
   <link href="../css/sidebars.css" rel="stylesheet">
+
+   <!-- Custom styles for this template -->
+   <link href="../css/features.css" rel="stylesheet">
 
 </head>
 
@@ -99,15 +103,71 @@
     
   </div>
   
-  <div class="b-example-divider"></div>
+  <!-- <div class="b-example-divider"></div> -->
 
-<div class="container py-4">
-  <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1>
-        <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p>
-        <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a>
+<div class="container">
+  <div class="p-3 mb-1 bg-light rounded-3">
+      <!-- <div class="container-fluid py-5"> -->
+        <!-- <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1> -->
+        <!-- <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p> -->
+        <!-- <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a> -->
+        <!-- <div class="container px-4 py-5" id="featured-3"> -->
+          <h2 class="pb-2 border-bottom">Carga de documentos </h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#edofin"/></svg>
+              </div>
+              <h2>Estados financieros</h2>
+              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#avance"/></svg>
+              </div>
+              <h2>Avance de gestión</h2>
+              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#cuentapub"/></svg>
+              </div>
+              <h2>Cuenta pública</h2>
+              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#manual"/></svg>
+              </div>
+              <h2>Manual de contabilidad</h2>
+              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+          </div>
+            
+          </div>
+
+
+        <!-- </div> -->
       </div>
+
+      
+
     </div>
 </div>
 
@@ -125,3 +185,4 @@ $(document).ready(function(){
 });
 </script>
 
+<script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
