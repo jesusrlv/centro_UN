@@ -105,15 +105,15 @@
   
   <!-- <div class="b-example-divider"></div> -->
 
-<div class="container">
-  <div class="p-3 mb-1 bg-light rounded-3">
+<div class="container-fluid">
+  <div class="p-4 m-3 bg-light rounded-3">
       <!-- <div class="container-fluid py-5"> -->
         <!-- <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1> -->
         <!-- <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p> -->
         <!-- <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a> -->
         <!-- <div class="container px-4 py-5" id="featured-3"> -->
           <h2 class="pb-2 border-bottom">Carga de documentos </h2>
-            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="row g-4 py-5 mx-5 row-cols-1 row-cols-lg-4">
             <div class="feature col">
               <div class="feature-icon bg-primary bg-gradient">
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#edofin"/></svg>
@@ -164,7 +164,7 @@
 
 
         <!-- </div> -->
-      </div>
+      <!-- </div> -->
 
       
 
