@@ -78,28 +78,28 @@
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
-        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
+        <a href="01_estados_financieros.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#edofin"/></svg>
         </a>
       </li>
       <li class="nav-item">
-        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Avance de gestión">
+        <a href="02_avance_gestion.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Avance de gestión">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#avance"/></svg>
         </a>
       </li>
       <li class="nav-item">
-        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
+        <a href="03_cuenta_publica.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
         </a>
       </li>
       <li class="nav-item">
-        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
+        <a href="04_manual_contabilidad.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#manual"/></svg>
         </a>
       </li>
       
       <li>
-        <a href="#" class="nav-link py-3 active border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Salir">
+        <a href="sort.php" class="nav-link py-3 active border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Salir">
           <svg class="bi" width="24" height="24"><use xlink:href="#exit"/></svg>
         </a>
       </li>
