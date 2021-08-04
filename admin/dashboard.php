@@ -28,6 +28,11 @@
 
 </head>
 
+<style>
+
+
+</style>
+
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -64,9 +69,9 @@
 </svg>
 
 
-<main>
+<main class="overflow-auto">
 
-<div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
+<div class="d-flex flex-column flex-shrink-0 bg-light h-100" style="width: 4.5rem;">
     <a href="dashboard.php" class="d-block p-3 bg-primary text-light link-dark text-decoration-none" data-toggle="tooltip" data-bs-placement="right" data-placement="right" title="Inicio">
       <svg class="bi" width="40" height="32"><use xlink:href="#home"/></svg>
       <span class="visually-hidden">Icon-only</span>
@@ -105,23 +110,23 @@
   
   <!-- <div class="b-example-divider"></div> -->
 
-<div class="container-fluid">
-  <div class="p-4 m-3 bg-light rounded-3">
+<div class="container-fluid" style="height:auto;">
+  <div class="p-4 m-5 bg-light rounded-3">
       <!-- <div class="container-fluid py-5"> -->
-        <!-- <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1> -->
+        <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
         <!-- <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p> -->
-        <!-- <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a> -->
-        <!-- <div class="container px-4 py-5" id="featured-3"> -->
-          <h2 class="pb-2 border-bottom">Carga de documentos </h2>
-            <div class="row g-4 py-5 mx-5 row-cols-1 row-cols-lg-4">
+        <!-- <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a>
+         <div class="container px-4 py-5" id="featured-3"> -->
+          <h2 class="pb-2 border-bottom">Centro UNESCO | Zacatecas, Zac.</h2>
+            <div class="row g-4 py-5 mx-5 row-cols-1 row-cols-lg-3">
             <div class="feature col">
               <div class="feature-icon bg-primary bg-gradient">
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#edofin"/></svg>
               </div>
               <h2>Estados financieros</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <p>Consulta y carga de estados financieros.</p>
               <a href="#" class="icon-link">
-                Call to action
+              <i class="bi bi-arrow-right"></i> Acceder
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
               </a>
             </div>
@@ -130,9 +135,9 @@
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#avance"/></svg>
               </div>
               <h2>Avance de gestión</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <p>Consulta y carga de los avances de gestión.</p>
               <a href="#" class="icon-link">
-                Call to action
+              <i class="bi bi-arrow-right"></i> Acceder
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
               </a>
             </div>
@@ -141,9 +146,9 @@
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#cuentapub"/></svg>
               </div>
               <h2>Cuenta pública</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <p>Consulta y carga de la cuenta pública.</p>
               <a href="#" class="icon-link">
-                Call to action
+              <i class="bi bi-arrow-right"></i> Acceder
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
               </a>
             </div>
@@ -152,9 +157,20 @@
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#manual"/></svg>
               </div>
               <h2>Manual de contabilidad</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+              <p>Consulta y carga del manual de contabilidad.</p>
               <a href="#" class="icon-link">
-                Call to action
+              <i class="bi bi-arrow-right"></i> Acceder
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="bg-danger feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#exit"/></svg>
+              </div>
+              <h2>Salir</h2>
+              <p>Cerrar la sesión en el sistema de carga.</p>
+              <a href="#" class="icon-link">
+              <i class="bi bi-arrow-right"></i> Acceder
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
               </a>
             </div>
