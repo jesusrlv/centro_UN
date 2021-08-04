@@ -25,16 +25,12 @@
 
    <!-- Custom styles for this template -->
    <link href="../css/features.css" rel="stylesheet">
-   
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <style>
 
-.logo, .cabecera{
-  height: 70px;
-  color: white;
-}
+
 </style>
 
 <body>
@@ -72,57 +68,110 @@
   </symbol>
 </svg>
 
-<div class="container-fluid">
-    <div class="row">
-        <aside class="col-2 px-0 fixed-top" id="left">
-            <div class="row bg-dark">
-                <div class="col-2 py-4 logo">
-                  <h3>Logo</h3>
-                </div>
-            </div>
-            <div class="list-group w-100">
-                <a href="#" class="list-group-item active">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-            </div>
 
-        </aside>
-        <main class="col-10 invisible">
-            <!--hidden spacer-->
-        </main>
-        <main class="col offset-2 h-100">
-            <div class="row bg-dark sticky-top">
-                <div class="col-12 py-4 cabecera">
-                    Cabecera o Menú
-                </div>
-            </div>
-            <div class="row bg-white">
-                <div class="col-12 py-4">
-                    Lorem Ipsum
+<main class="overflow-auto">
 
-                    <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut
-                        semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave
-                        meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
+<div class="d-flex flex-column flex-shrink-0 bg-light h-100" style="width: 4.5rem;">
+    <a href="dashboard.php" class="d-block p-3 bg-primary text-light link-dark text-decoration-none" data-toggle="tooltip" data-bs-placement="right" data-placement="right" title="Inicio">
+      <svg class="bi" width="40" height="32"><use xlink:href="#home"/></svg>
+      <span class="visually-hidden">Icon-only</span>
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+      <li class="nav-item">
+        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#edofin"/></svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Avance de gestión">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#avance"/></svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="carga_docs.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#manual"/></svg>
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" class="nav-link py-3 active border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Salir">
+          <svg class="bi" width="24" height="24"><use xlink:href="#exit"/></svg>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </div>
+  
+  <!-- <div class="b-example-divider"></div> -->
 
-                    <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb
-                        readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch
-                        selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
-                </div>
-            </div>
-        </main>
+<div class="container-fluid" style="height:auto;">
+    <div class="p-4 m-5 bg-light rounded-3">
+          <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
+          <h2 class="pb-2 ">Centro UNESCO | Zacatecas, Zac.</h2>
+          <h4 class="pb-2 border-bottom text-secondary">Cuenta pública</h4>
+            
+            
+                <form class="row g-3 py-5 mx-5">
+                    <div class="col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
+                        <select class="form-select" id="inputGroupSelect01">
+                        <option selected>Año...</option>
+                        <option value="1">2015</option>
+                        <option value="2">2016</option>
+                        <option value="3">2017</option>
+                        <option value="3">2018</option>
+                        <option value="3">2019</option>
+                        <option value="3">2020</option>
+                        <option value="3">2021</option>
+                    </select>
+                    </div>
+                    
+                    </div>
+
+                    <div class="col-md-8">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
+                        <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Categoría...</option>
+                        <option value="1">Información contable</option>
+                        <option value="2">Información presupuestal</option>
+                        <option value="3">Información programática</option>
+                        <option value="4">Información fiscal</option>
+                        <option value="5">Formatos de disciplina financiera</option>
+                        <option value="6">Notas a los estados financieros</option>
+                        <option value="7">Anexos</option>
+                        
+                    </select>
+                    </div>
+                    
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile01">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Guardar</button>
+                        <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                    </div>
+                </form>
     </div>
 </div>
+
+  </main>
+
   
 
 </body>
-
 
 </html>
 

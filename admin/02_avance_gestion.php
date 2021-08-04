@@ -111,77 +111,58 @@
   <!-- <div class="b-example-divider"></div> -->
 
 <div class="container-fluid" style="height:auto;">
-  <div class="p-4 m-5 bg-light rounded-3">
+    <div class="p-4 m-5 bg-light rounded-3">
         <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
-          <h2 class="pb-2 border-bottom">Centro UNESCO | Zacatecas, Zac.</h2>
-            <div class="row g-4 py-5 mx-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
-              <div class="feature-icon bg-primary bg-gradient">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#edofin"/></svg>
-              </div>
-              <h2>Estados financieros</h2>
-              <p>Consulta y carga de estados financieros.</p>
-              <a href="01_estados_financieros.php" class="icon-link">
-              <i class="bi bi-arrow-right"></i> Acceder
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-              </a>
-            </div>
-            <div class="feature col">
-              <div class="feature-icon bg-primary bg-gradient">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#avance"/></svg>
-              </div>
-              <h2>Avance de gestión</h2>
-              <p>Consulta y carga de los avances de gestión.</p>
-              <a href="02_avance_gestion.php" class="icon-link">
-              <i class="bi bi-arrow-right"></i> Acceder
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-              </a>
-            </div>
-            <div class="feature col">
-              <div class="feature-icon bg-primary bg-gradient">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#cuentapub"/></svg>
-              </div>
-              <h2>Cuenta pública</h2>
-              <p>Consulta y carga de la cuenta pública.</p>
-              <a href="03_cuenta_publica.php" class="icon-link">
-              <i class="bi bi-arrow-right"></i> Acceder
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-              </a>
-            </div>
-            <div class="feature col">
-              <div class="feature-icon bg-primary bg-gradient">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#manual"/></svg>
-              </div>
-              <h2>Manual de contabilidad</h2>
-              <p>Consulta y carga del manual de contabilidad.</p>
-              <a href="04_manual_contabilidad.php" class="icon-link">
-              <i class="bi bi-arrow-right"></i> Acceder
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-              </a>
-            </div>
-            <div class="feature col">
-              <div class="bg-danger feature-icon bg-primary bg-gradient">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#exit"/></svg>
-              </div>
-              <h2>Salir</h2>
-              <p>Cerrar la sesión en el sistema de carga.</p>
-              <a href="#" class="icon-link">
-              <i class="bi bi-arrow-right"></i> Acceder
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-              </a>
-            </div>
-          </div>
+          <h2 class="pb-2 ">Centro UNESCO | Zacatecas, Zac.</h2>
+          <h4 class="pb-2 border-bottom text-secondary">Avance de gestión</h4>
+           
+                <form class="row g-3 py-5 mx-5">
+                    <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
+                        <select class="form-select" id="inputGroupSelect01">
+                        <option selected>Año...</option>
+                        <option value="1">2015</option>
+                        <option value="2">2016</option>
+                        <option value="3">2017</option>
+                        <option value="3">2018</option>
+                        <option value="3">2019</option>
+                        <option value="3">2020</option>
+                        <option value="3">2021</option>
+                    </select>
+                    </div>
+                    
+                    </div>
+
+                    <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
+                        <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Trimestre...</option>
+                        <option value="1">Primero</option>
+                        <option value="2">Segundo</option>
+                        <option value="3">Tercero</option>
+                        <option value="4">Cuarto</option>
+                        
+                    </select>
+                    </div>
+                    
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile01">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Guardar</button>
+                        <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                    </div>
+                </form>
             
-          </div>
-
-
-        <!-- </div> -->
-      <!-- </div> -->
-
-      
-
     </div>
-</div>
+  </div>
 
   </main>
 

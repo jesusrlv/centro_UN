@@ -8,6 +8,7 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
@@ -16,13 +17,21 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/features/">
 
   <script src="../css/sidebars.js"></script>
 
   <link href="../css/sidebars.css" rel="stylesheet">
 
+   <!-- Custom styles for this template -->
+   <link href="../css/features.css" rel="stylesheet">
+
 </head>
+
+<style>
+
+
+</style>
 
 <body>
 
@@ -60,9 +69,9 @@
 </svg>
 
 
-<main>
+<main class="overflow-auto">
 
-<div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
+<div class="d-flex flex-column flex-shrink-0 bg-light h-100" style="width: 4.5rem;">
     <a href="dashboard.php" class="d-block p-3 bg-primary text-light link-dark text-decoration-none" data-toggle="tooltip" data-bs-placement="right" data-placement="right" title="Inicio">
       <svg class="bi" width="40" height="32"><use xlink:href="#home"/></svg>
       <span class="visually-hidden">Icon-only</span>
@@ -99,17 +108,69 @@
     
   </div>
   
-  <div class="b-example-divider"></div>
+  <!-- <div class="b-example-divider"></div> -->
 
-<div class="container py-4">
-  <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Sistema de carga de archivos</h1>
-        <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p>
-        <hr>
-        <p class="col-md-8 fs-4 lead text-muted"><i class="bi bi-file-earmark-plus-fill"></i> Carga de documentos</p>
-        <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</button>
-      </div>
+<div class="container-fluid" style="height:auto;">
+    <div class="p-4 m-5 bg-light rounded-3">
+      <!-- <div class="container-fluid py-5"> -->
+        <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
+        <!-- <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p> -->
+        <!-- <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a>
+         <div class="container px-4 py-5" id="featured-3"> -->
+          <h2 class="pb-2 ">Centro UNESCO | Zacatecas, Zac.</h2>
+          <h4 class="pb-2 border-bottom text-secondary">Estados financieros</h4>
+            
+            <div>
+            
+
+                <form class="row g-3 py-5 mx-5">
+                    <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
+                        <select class="form-select" id="inputGroupSelect01">
+                        <option selected>Año...</option>
+                        <option value="1">2015</option>
+                        <option value="2">2016</option>
+                        <option value="3">2017</option>
+                        <option value="3">2018</option>
+                        <option value="3">2019</option>
+                        <option value="3">2020</option>
+                        <option value="3">2021</option>
+                    </select>
+                    </div>
+                    
+                    </div>
+
+                    <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
+                        <select class="form-select" id="inputGroupSelect02">
+                        <option selected>Trimestre...</option>
+                        <option value="1">Primero</option>
+                        <option value="2">Segundo</option>
+                        <option value="3">Tercero</option>
+                        <option value="4">Cuarto</option>
+                        
+                    </select>
+                    </div>
+                    
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile01">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Guardar</button>
+                        <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                    </div>
+                </form>
+            </div>
+            
+          </div>
+
     </div>
 </div>
 
@@ -127,3 +188,4 @@ $(document).ready(function(){
 });
 </script>
 
+<script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
