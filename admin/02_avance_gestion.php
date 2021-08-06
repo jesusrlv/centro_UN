@@ -1,3 +1,24 @@
+<?php
+
+// session_start();
+
+// if (isset($_SESSION['usr'])) {
+//   if($_SESSION['perfil']==2){
+
+//   }
+//   else{
+//     header('Location: prcd/sort.php');
+//     die();
+//   }
+  
+// } else {
+//   // En caso contrario redirigimos el visitante a otra página
+
+//   header('Location: prcd/sort.php');
+//   die();
+// }
+include('prcd/conn.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -116,19 +137,18 @@
           <h2 class="pb-2 ">Centro UNESCO | Zacatecas, Zac.</h2>
           <h4 class="pb-2 border-bottom text-secondary">Avance de gestión</h4>
            
-                <form class="row g-3 py-5 mx-5">
+                <form class="row g-3 py-5 mx-5 border-bottom">
                     <div class="col-md-6">
                     <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
                         <select class="form-select" id="inputGroupSelect01">
-                        <option selected>Año...</option>
-                        <option value="1">2015</option>
-                        <option value="2">2016</option>
-                        <option value="3">2017</option>
-                        <option value="3">2018</option>
-                        <option value="3">2019</option>
-                        <option value="3">2020</option>
-                        <option value="3">2021</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
                     </select>
                     </div>
                     
@@ -160,6 +180,55 @@
                         <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                     </div>
                 </form>
+                <!-- tabla -->
+                <div class="table-responsive p-5">
+                  <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
+                    <thead class="table-dark text-white">
+                      <tr>
+                       <span class="lead"><i class="bi bi-files"></i> Documentos cargados</span>
+                        <th>Año</th>
+                        <th>Trimestre</th>
+                        <th>Documento</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                        $sql = "SELECT * FROM archivo WHERE categoria = 2 ORDER BY annio";
+                        $resultado_sql = $conn->query($sql);
+                        // $row_sql = $resultado_sql->fetch_assoc();
+                        while($row_sql = $resultado_sql->fetch_assoc()){
+                          echo '<tr>';
+                          echo ' <td>'.$row_sql['annio'].'</td>';
+                          echo ' <td>'.$row_sql['categoria'].'</td>';
+                          echo ' <td><a href="../docs/'.$row_sql['documento'].'"><i class="bi bi-file-earmark-pdf-fill h5"></i></td>';
+                          echo ' <td><a href="prcd/editar.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a> | <a href="prcd/borrar.php?id='.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a></td>';
+                          echo '</tr>';
+                        }
+                      ?>
+                      
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                        <td>Celda 4</td>
+                      </tr>
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                        <td>Celda 4</td>
+                      </tr>
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                        <td>Celda 4</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- tabla -->
             
     </div>
   </div>

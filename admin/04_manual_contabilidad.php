@@ -127,6 +127,39 @@
                             <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                         </div>
                     </form>
+                    <!-- tabla -->
+                <div class="table-responsive p-5">
+                  <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
+                    <thead class="table-dark text-white">
+                      <tr>
+                       <span class="lead"><i class="bi bi-files"></i> Documentos cargados</span>
+                        <th>Fecha de carga</th>
+                        
+                        <th>Documento</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                      </tr>
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                      </tr>
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- tabla -->
         </div>
     </div>
 

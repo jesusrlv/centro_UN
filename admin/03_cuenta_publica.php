@@ -117,19 +117,19 @@
           <h4 class="pb-2 border-bottom text-secondary">Cuenta pública</h4>
             
             
-                <form class="row g-3 py-5 mx-5">
+                <form class="row g-3 py-5 mx-5 border-bottom">
                     <div class="col-md-4">
                     <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
                         <select class="form-select" id="inputGroupSelect01">
                         <option selected>Año...</option>
-                        <option value="1">2015</option>
-                        <option value="2">2016</option>
-                        <option value="3">2017</option>
-                        <option value="3">2018</option>
-                        <option value="3">2019</option>
-                        <option value="3">2020</option>
-                        <option value="3">2021</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
                     </select>
                     </div>
                     
@@ -164,6 +164,43 @@
                         <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                     </div>
                 </form>
+
+                <!-- tabla -->
+                <div class="table-responsive p-5">
+                  <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
+                    <thead class="table-dark text-white">
+                      <tr>
+                       <span class="lead"><i class="bi bi-files"></i> Documentos cargados</span>
+                        <th>Año</th>
+                        <th>Categoría</th>
+                        <th>Documento</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                        <td>Celda 4</td>
+                      </tr>
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                        <td>Celda 4</td>
+                      </tr>
+                      <tr>
+                        <td>Celda 1</td>
+                        <td>Celda 2</td>
+                        <td>Celda 3</td>
+                        <td>Celda 4</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- tabla -->
     </div>
 </div>
 
