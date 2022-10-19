@@ -113,7 +113,7 @@
 <div class="container-fluid" style="height:auto;">
   <div class="p-4 m-5 bg-light rounded-3">
         <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
-          <h2 class="pb-2 border-bottom">Centro UNESCO | Zacatecas, Zac.</h2>
+          <h2 class="pb-2 border-bottom">INJUVENTUD | Zacatecas, Zac.</h2>
             <div class="row g-4 py-5 mx-5 row-cols-1 row-cols-lg-3">
             <div class="feature col">
               <div class="feature-icon bg-primary bg-gradient">
