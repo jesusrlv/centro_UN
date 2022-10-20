@@ -165,8 +165,8 @@
               </div>
               <h2>Salir</h2>
               <p>Cerrar la sesión en el sistema de carga.</p>
-              <a href="#" class="icon-link">
-              <i class="bi bi-arrow-right"></i> Acceder
+              <a href="prcd/sort.php" class="icon-link">
+              <i class="bi bi-arrow-right"></i> Cerrar sesión
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
               </a>
             </div>
