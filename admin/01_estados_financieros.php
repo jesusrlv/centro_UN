@@ -128,63 +128,62 @@ include('prcd/conn.php');
     </ul>
     
   </div>
-  
-  <!-- <div class="b-example-divider"></div> -->
 
 <div class="container-fluid" style="height:auto;">
     <div class="p-4 m-5 bg-light rounded-3">
-      <!-- <div class="container-fluid py-5"> -->
         <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
-        <!-- <p class="col-md-8 fs-4">Centro UNESCO | Zacatecas, Zac.</p> -->
-        <!-- <a href="carga_docs.php" class="btn btn-primary btn-lg" type="button"><i class="bi bi-file-plus"></i> Carga de archivos</a>
-         <div class="container px-4 py-5" id="featured-3"> -->
           <h2 class="pb-2 ">INJUVENTUD | Zacatecas, Zac.</h2>
-          <h4 class="pb-2 border-bottom text-secondary">Estados financieros</h4>
-            
-            <div>
-            
-
+          <h4 class="pb-2 border-bottom text-secondary">Estados financieros</h4>          
+            <div>     
                 <form class="row g-3 py-5 mx-5 border-bottom">
                     <div class="col-md-6">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
-                        <select class="form-select" id="inputGroupSelect01">
-                        <option selected>Año...</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2022</option>
-                        <option value="2021">2023</option>
-                        <option value="2020">2024</option>
-                        <option value="2021">2025</option>
-                        <option value="2021">2026</option>
-                        <option value="2021">2027</option>
-                    </select>
-                    </div>
-                    
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect01">
+                          <option selected>Año...</option>
+                          <?php 
+                          $sqlAnnio = "SELECT * FROM annio ORDER BY id ASC";
+                          $resultadoAnnio = $conn->query($sqlAnnio);
+                          while($rowAnnio = $resultadoAnnio->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio['annio'].'">'.$rowAnnio['annio'].'</option>';
+                          }
+                          ?>
+                      </select>
+                      </div>
                     </div>
 
                     <div class="col-md-6">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
-                        <select class="form-select" id="inputGroupSelect02">
-                        <option selected>Trimestre...</option>
-                        <option value="1">Primero</option>
-                        <option value="2">Segundo</option>
-                        <option value="3">Tercero</option>
-                        <option value="4">Cuarto</option>
-                        
-                    </select>
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
+                          <select class="form-select" id="inputGroupSelect02">
+                          <option selected>Trimestre...</option>
+                          <option value="1">Primero</option>
+                          <option value="2">Segundo</option>
+                          <option value="3">Tercero</option>
+                          <option value="4">Cuarto</option>
+                          
+                      </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect02">
+                          <option selected>Categoría...</option>
+                          <?php 
+                          $sqlCategoria = "SELECT * FROM categoria WHERE topico = 1 ORDER BY id ASC";
+                          $resultadoCategoria = $conn->query($sqlCategoria);
+                          while($rowCategoria = $resultadoCategoria->fetch_assoc()){
+                            echo '<option value="'.$rowCategoria['categoria'].'">'.$rowCategoria['categoria'].'</option>';
+                          }
+                          ?>
+                          
+                      </select>
+                      </div>
                     </div>
                     
-                    </div>
-                    
-                    <div class="col-12">
-                        <div class="input-group mb-3">
+                    <div class="col-md-12">
+                        <div class="input-group mb-3 w-50">
                             <input type="file" class="form-control" id="inputGroupFile01">
                         </div>
                     </div>
@@ -208,7 +207,7 @@ include('prcd/conn.php');
                     </thead>
                     <tbody>
                       <?php 
-                        $sql = "SELECT * FROM archivo WHERE categoria = 1 ORDER BY annio";
+                        $sql = "SELECT * FROM archivo WHERE categoria = 1 ORDER BY fecha";
                         $resultado_sql = $conn->query($sql);
                         // $row_sql = $resultado_sql->fetch_assoc();
                         while($row_sql = $resultado_sql->fetch_assoc()){

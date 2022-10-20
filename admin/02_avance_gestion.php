@@ -23,7 +23,7 @@ include('prcd/conn.php');
 <html lang="es">
 <head>
 <title>Inicio</title>
-  <link rel="shortcut icon" type="image/png" href="..css/assets/brand/img/ico.ico" sizes="32x32">	
+  <link rel="shortcut icon" type="image/png" href="../css/assets/brand/img/ico.ico" sizes="32x32">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
