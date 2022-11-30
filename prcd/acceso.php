@@ -7,7 +7,7 @@ if (isset($_POST['usr']) && isset($_POST['pwd'])) {
     $sql = "SELECT * FROM users WHERE usr = '$id' AND pwd ='$pwd'";
     $resultado_sql = $conn->query($sql);
     if($row_sql=mysqli_fetch_array($resultado_sql)){
-    // if($resultado_sql){
+        $_SESSION['id'] = $id;
         echo json_encode(array('success' => 1));
     }
     else{

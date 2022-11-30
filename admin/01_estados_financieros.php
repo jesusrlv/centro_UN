@@ -1,6 +1,6 @@
 <?php
-
-// session_start();
+session_start();
+$id = $_SESSION['id'];
 
 // if (isset($_SESSION['usr'])) {
 //   if($_SESSION['perfil']==2){
@@ -18,6 +18,7 @@
 //   die();
 // }
 include('prcd/conn.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -135,11 +136,11 @@ include('prcd/conn.php');
           <h2 class="pb-2 ">INJUVENTUD | Zacatecas, Zac.</h2>
           <h4 class="pb-2 border-bottom text-secondary">Estados financieros</h4>          
             <div>     
-                <form class="row g-3 py-5 mx-5 border-bottom">
+                <form class="row g-3 py-5 mx-5 border-bottom" action="prcd/01_alta.php" method="POST" enctype="multipart/form-data">
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
-                          <select class="form-select" id="inputGroupSelect01">
+                          <select class="form-select" id="inputGroupSelect01" name="annio">
                           <option selected>Año...</option>
                           <?php 
                           $sqlAnnio = "SELECT * FROM annio ORDER BY id ASC";
@@ -155,7 +156,7 @@ include('prcd/conn.php');
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
-                          <select class="form-select" id="inputGroupSelect02">
+                          <select class="form-select" id="inputGroupSelect02" name="trimestre">
                           <option selected>Trimestre...</option>
                           <option value="1">Primero</option>
                           <option value="2">Segundo</option>
@@ -168,7 +169,7 @@ include('prcd/conn.php');
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></div>
-                          <select class="form-select" id="inputGroupSelect02">
+                          <select class="form-select" id="inputGroupSelect02" name="subcategoria">
                           <option selected>Categoría...</option>
                           <?php 
                           $sqlCategoria = "SELECT * FROM categoria WHERE topico = 1 ORDER BY id ASC";
@@ -184,7 +185,7 @@ include('prcd/conn.php');
                     
                     <div class="col-md-12">
                         <div class="input-group mb-3 w-50">
-                            <input type="file" class="form-control" id="inputGroupFile01">
+                            <input type="file" class="form-control" id="inputGroupFile01" name="file1">
                         </div>
                     </div>
                     
@@ -195,10 +196,10 @@ include('prcd/conn.php');
                 </form>
 
                 <div class="table-responsive p-5">
-                  <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
-                    <thead class="table-dark text-white">
+                  <table class="table table-sm table-bordered table-dark table-striped table-hover align-middle text-center">
+                    <thead class="table-secondary text-dark">
                       <tr>
-                       <span class="lead"><i class="bi bi-files"></i> Documentos cargados</span>
+                       <span class="lead"><h5 class="pb-2 border-bottom text-secondary"><i class="bi bi-files"></i> Documentos cargados</h5></span>
                         <th>Año</th>
                         <th>Trimestre</th>
                         <th>Documento</th>
