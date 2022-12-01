@@ -220,25 +220,6 @@ include('prcd/conn.php');
                           echo '</tr>';
                         }
                       ?>
-                      
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>

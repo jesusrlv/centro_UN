@@ -6,7 +6,7 @@
     include('conn.php');
     date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
-    $id = $_SESSION['id'];
+    // $id = $_SESSION['id'];
 
     $annio = $_POST['annio'];
     $trimestre = $_POST['trimestre'];
@@ -30,15 +30,14 @@
     $archivo_ext=$_FILES['file1']['name'];
     $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
 
-    if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$id.'_'. $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension)){
+    if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$id.'_'.$annio.'_'.$trimestre.'_'.$categoria.'_'.$subcategoria.'.'.$extension)){
     // echo "$fileName carga completa";
     
-    // $ruta = "docs/". $annio .'_'. $mes .'_'.$last.'_'.$first.'.'.$extension;
-    $ruta = $id.'_'. $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
+    $ruta = $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
 
-    $sql = "INSERT INTO archivo(fecha,annio,trimestre,categoria,subcategoria,documento,usr_ext) VALUES('$fecha_sistema','$annio','$trimestre','$categoria','$subcategoria','$ruta','$id')";
+    $sql = "INSERT INTO archivo(fecha,annio,trimestre,categoria,subcategoria,documento) VALUES('$fecha_sistema','$annio','$trimestre','$categoria','$subcategoria','$ruta')";
     $resultado= $conn->query($sql);
-
+    if($resultado){
     echo"
     <script>
     Swal.fire({
@@ -52,7 +51,10 @@
         footer: 'juventud.zacatecas.gob.mx'
     }).then(function(){window.location='../01_estados_financieros.php';});  
     </script> 
-    ";
+    ";}
+    else{
+        echo 'No se registró';
+    }
     
     
 } else {
