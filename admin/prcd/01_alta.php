@@ -1,12 +1,16 @@
 <html>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <header>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </header>
+    <body>
+        
+    
 <?php
     session_start();
     include('conn.php');
     date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
-    // $id = $_SESSION['id'];
+    $id = $_SESSION['id'];
 
     $annio = $_POST['annio'];
     $trimestre = $_POST['trimestre'];
@@ -31,36 +35,38 @@
     $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
 
     if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$id.'_'.$annio.'_'.$trimestre.'_'.$categoria.'_'.$subcategoria.'.'.$extension)){
-    // echo "$fileName carga completa";
-    
-    $ruta = $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
+        // echo "$fileName carga completa";     
+        
+        $ruta = $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
 
-    $sql = "INSERT INTO archivo(fecha,annio,trimestre,categoria,subcategoria,documento) VALUES('$fecha_sistema','$annio','$trimestre','$categoria','$subcategoria','$ruta')";
-    $resultado= $conn->query($sql);
-    if($resultado){
-    echo"
-    <script>
-    Swal.fire({
-        icon: 'success',
-        imageUrl: '../assets/brand/img/logo_store_shoes_sin_fondo.png',
-        imageHeight: 200,
-        imageAlt: 'INJUVENTUD',
-        title: 'Carga completa',
-        text: 'El archivo ha sido cargado con éxito',
-        confirmButtonColor: '#3085d6',
-        footer: 'juventud.zacatecas.gob.mx'
-    }).then(function(){window.location='../01_estados_financieros.php';});  
-    </script> 
-    ";}
-    else{
-        echo 'No se registró';
-    }
-    
-    
+        $sql = "INSERT INTO archivo(fecha,annio,trimestre,categoria,subcategoria,documento,usr_ext) VALUES('$fecha_sistema','$annio','$trimestre','$categoria','$subcategoria','$ruta','$id')";
+        $resultado= $conn->query($sql);
+        if($resultado){
+            echo"
+            <script>
+            Swal.fire({
+                icon: 'success',
+                imageUrl: '../assets/brand/img/logo_store_shoes_sin_fondo.png',
+                imageHeight: 200,
+                imageAlt: 'INJUVENTUD',
+                title: 'Carga completa',
+                text: 'El archivo ha sido cargado con éxito',
+                confirmButtonColor: '#3085d6',
+                footer: 'juventud.zacatecas.gob.mx'
+            }).then(function(){window.location='../01_estados_financieros.php';});  
+            </script> 
+            ";
+        }
+        else{
+            echo 'No se registró';
+            $error = $conn->error;
+            echo $error;
+        
+        }   
 } else {
     echo "move_uploaded_file function failed";
 }
 
 ?>
-
+</body>
 </html>

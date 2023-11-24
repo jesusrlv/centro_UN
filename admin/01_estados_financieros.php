@@ -1,6 +1,20 @@
 <?php
 session_start();
-$id = $_SESSION['id'];
+if(isset($_SESSION['id'])){
+  $id = $_SESSION['id'];
+  echo'
+  <script>
+    console.log("Acceso correcto");
+  </script>
+  ';
+}
+else{
+  echo'
+  <script>
+    console.log("Sin variable de sesión");
+  </script>
+  ';
+}
 
 // if (isset($_SESSION['usr'])) {
 //   if($_SESSION['perfil']==2){
@@ -29,7 +43,7 @@ include('prcd/conn.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></>
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -121,13 +135,11 @@ include('prcd/conn.php');
       </li>
       
       <li>
-        <a href="sort.php" class="nav-link py-3 active border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Salir">
+        <a href="prcd/sort.php" class="nav-link py-3 active border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Salir">
           <svg class="bi" width="24" height="24"><use xlink:href="#exit"/></svg>
         </a>
       </li>
-      
     </ul>
-    
   </div>
 
 <div class="container-fluid" style="height:auto;">

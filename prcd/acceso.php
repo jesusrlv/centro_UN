@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('qc/qc.php');
 if (isset($_POST['usr']) && isset($_POST['pwd'])) {
    
