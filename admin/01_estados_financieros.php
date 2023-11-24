@@ -38,15 +38,15 @@ include('prcd/conn.php');
 <html lang="es">
 <head>
 <title>Inicio</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/brand/img/ico.ico" sizes="32x32">
+  <link rel="shortcut icon" type="image/png" href="../css/assets/brand/img/ico.ico" sizes="32x32">
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></>
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></>
+  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   
  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -168,7 +168,7 @@ include('prcd/conn.php');
 
                     <div class="col-md-6">
                       <div class="input-group">
-                          <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
+                          <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
                           <select class="form-select" id="inputGroupSelect02" name="trimestre">
                           <option selected>Trimestre...</option>
                           <option value="1">Primero</option>
@@ -223,7 +223,6 @@ include('prcd/conn.php');
                       <?php 
                         $sql = "SELECT * FROM archivo WHERE categoria = 1 ORDER BY fecha";
                         $resultado_sql = $conn->query($sql);
-                        // $row_sql = $resultado_sql->fetch_assoc();
                         while($row_sql = $resultado_sql->fetch_assoc()){
                           echo '<tr>';
                           echo ' <td>'.$row_sql['annio'].'</td>';
