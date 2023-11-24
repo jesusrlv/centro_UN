@@ -38,21 +38,22 @@ include('prcd/conn.php');
 <html lang="es">
 <head>
 <title>Inicio</title>
-  <link rel="shortcut icon" type="image/png" href="../css/assets/brand/img/ico.ico" sizes="32x32">
+  <link rel="shortcut icon" type="image/png" href="../assets/brand/img/ico.ico" sizes="32x32">
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
-  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></>
-  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  
+ 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/features/">
 
   <script src="../css/sidebars.js"></script>
@@ -187,7 +188,7 @@ include('prcd/conn.php');
                           $sqlCategoria = "SELECT * FROM categoria WHERE topico = 1 ORDER BY id ASC";
                           $resultadoCategoria = $conn->query($sqlCategoria);
                           while($rowCategoria = $resultadoCategoria->fetch_assoc()){
-                            echo '<option value="'.$rowCategoria['categoria'].'">'.$rowCategoria['categoria'].'</option>';
+                            echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['categoria'].'</option>';
                           }
                           ?>
                           
@@ -218,7 +219,7 @@ include('prcd/conn.php');
                         <th>Acción</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-light">
                       <?php 
                         $sql = "SELECT * FROM archivo WHERE categoria = 1 ORDER BY fecha";
                         $resultado_sql = $conn->query($sql);
@@ -227,8 +228,8 @@ include('prcd/conn.php');
                           echo '<tr>';
                           echo ' <td>'.$row_sql['annio'].'</td>';
                           echo ' <td>'.$row_sql['trimestre'].'</td>';
-                          echo ' <td><a href="../docs/'.$row_sql['documento'].'"><i class="bi bi-file-earmark-pdf-fill h5"></i></td>';
-                          echo ' <td><a href="prcd/editar.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a> | <a href="prcd/borrar.php?id='.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a></td>';
+                          echo ' <td><a href="docs/'.$row_sql['documento'].'">Documento<i class="bi bi-file-earmark-pdf-fill h5"></i></td>';
+                          echo ' <td><a href="prcd/editar.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i>x</a> | <a href="prcd/borrar.php?id='.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a></td>';
                           echo '</tr>';
                         }
                       ?>
