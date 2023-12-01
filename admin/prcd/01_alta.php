@@ -39,7 +39,22 @@
         
         $ruta = $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
 
-        $sql = "INSERT INTO archivo(fecha,annio,trimestre,categoria,subcategoria,documento,usr_ext) VALUES('$fecha_sistema','$annio','$trimestre','$categoria','$subcategoria','$ruta','$id')";
+        $sql = "INSERT INTO archivo(
+            fecha,
+            annio,
+            trimestre,
+            categoria,
+            subcategoria,
+            documento,
+            usr_ext) 
+            VALUES(
+            '$fecha_sistema',
+            '$annio',
+            '$trimestre',
+            '$categoria',
+            '$subcategoria',
+            '$ruta',
+            '$id')";
         $resultado= $conn->query($sql);
         if($resultado){
             echo"

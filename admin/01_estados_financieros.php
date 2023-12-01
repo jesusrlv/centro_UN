@@ -4,7 +4,7 @@ if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
   echo'
   <script>
-    console.log("Acceso correcto");
+    console.log("Acceso correcto +'.$id.'");
   </script>
   ';
 }
@@ -44,7 +44,6 @@ include('prcd/conn.php');
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></>
-  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   
@@ -158,10 +157,10 @@ include('prcd/conn.php');
                           <select class="form-select" id="inputGroupSelect01" name="annio">
                           <option selected>Año...</option>
                           <?php 
-                          $sqlAnnio = "SELECT * FROM annio ORDER BY id ASC";
-                          $resultadoAnnio = $conn->query($sqlAnnio);
-                          while($rowAnnio = $resultadoAnnio->fetch_assoc()){
-                            echo '<option value="'.$rowAnnio['annio'].'">'.$rowAnnio['annio'].'</option>';
+                          $sqlAnnio2 = "SELECT * FROM annio ORDER BY id ASC";
+                          $resultadoAnnio2 = $conn->query($sqlAnnio2);
+                          while($rowAnnio2 = $resultadoAnnio2->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio2['annio'].'">'.$rowAnnio2['annio'].'</option>';
                           }
                           ?>
                       </select>
@@ -227,31 +226,26 @@ include('prcd/conn.php');
                       while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
                         $annio = $row_sqAnnio['annio'];
                         $trimestres = 4;
-                        // echo $annio;
 
                         echo '<tr>';
                         echo '<td>'.$row_sqAnnio['annio'].'</td>';
                         echo '<td colspan="3"></td>';
                        
                         echo '</tr>';
-                        echo'
-                        <tr>';
-                        for ($i = 1; $i <= 4; $i++) {
-                          // while($trimestres){
-                            $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' ORDER BY trimestre DESC, annio DESC";
-                            $resultado_sql = $conn->query($sql);
+                       
+                        for ($i = 1; $i <= 4; $i++) {                           
+                            echo'
+                            <tr>';
                             echo'
                             <td colspan="4">
-                           
-                              <div class="accordion accordion-flush" id="accordionExample'.$i.'">
-                                
+                              <div class="accordion accordion-flush" id="accordionExample'.$i.$annio.'">
                                 <div class="accordion-item">
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.'" aria-expanded="false" aria-controls="collapseThree'.$i.'">
-                                      Trimestre '.$i.'
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
+                                      Trimestre '.$i.$annio.'
                                     </button>
                                   </h2>
-                                  <div id="collapseThree'.$i.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.'">
+                                  <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
                                     <div class="accordion-body">
                                     <div class="row">
                                   <div class="col-4 text-center border bg-primary">
@@ -264,28 +258,11 @@ include('prcd/conn.php');
                                       <strong class="text-light">Acciones</strong>
                                   </div>
                                   </div>';
-                        while($row_sql = $resultado_sql->fetch_assoc()){
-                         
-                                  echo'
-                                      <div class="row">
-                                      <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['id'].'
-                                      </div>
-                                      <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['documento'].'
-                                      </div>
-                                      <div class="col-4 text-center text-dark border">
-                                      <a href="prcd/editar.php?id='.$row_sqAnnio['id'].'" style="text-decoration:none" class=""><i class="bi bi-pencil-square"></i></a> | <a href="prcd/borrar.php?id='.$row_sqAnnio['id'].'" style="text-decoration:none" class=""><i class="bi bi-trash-fill"></i></a>
-                                      </div>
-                                  </div>';
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' ORDER BY trimestre DESC";
+                                  $resultado_sql = $conn->query($sql);
+                                  while($row_sql = $resultado_sql->fetch_assoc()){
 
-                                  
-                                  $documento = $row_sql['documento'];
-                                  $doc = "SELECT * FROM archivo WHERE id = '$documento'";
-                                  $resultadoDoc = $conn->query($doc);
-                                  
-                                  while($rowDoc = $resultadoDoc->fetch_assoc()){
-                                    
+                             
                                     echo '
                                     <div class="row">
                                           <div class="col-4 text-center text-dark border">
@@ -311,7 +288,7 @@ include('prcd/conn.php');
                             </td>
                           </tr>
                           ';
-                        }
+                        // }
                       }
                         }
                       ?>
