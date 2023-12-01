@@ -54,6 +54,8 @@ include('prcd/conn.php');
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/features/">
 
   <script src="../css/sidebars.js"></script>
@@ -214,22 +216,103 @@ include('prcd/conn.php');
                       <tr>
                        <span class="lead"><h5 class="pb-2 border-bottom text-secondary"><i class="bi bi-files"></i> Documentos cargados</h5></span>
                         <th>Año</th>
-                        <th>Trimestre</th>
-                        <th>Documento</th>
-                        <th>Acción</th>
+                        <th colspan="3"></th>
+                        
                       </tr>
                     </thead>
                     <tbody class="text-light">
                       <?php 
-                        $sql = "SELECT * FROM archivo WHERE categoria = 1 ORDER BY fecha";
-                        $resultado_sql = $conn->query($sql);
+                      $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+                      $resultado_sqlAnnio = $conn->query($sqlAnnio);
+                      while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
+                        $annio = $row_sqAnnio['annio'];
+                        $trimestres = 4;
+                        // echo $annio;
+
+                        echo '<tr>';
+                        echo '<td>'.$row_sqAnnio['annio'].'</td>';
+                        echo '<td colspan="3"></td>';
+                       
+                        echo '</tr>';
+                        echo'
+                        <tr>';
+                        for ($i = 1; $i <= 4; $i++) {
+                          // while($trimestres){
+                            $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' ORDER BY trimestre DESC, annio DESC";
+                            $resultado_sql = $conn->query($sql);
+                            echo'
+                            <td colspan="4">
+                           
+                              <div class="accordion accordion-flush" id="accordionExample'.$i.'">
+                                
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.'" aria-expanded="false" aria-controls="collapseThree'.$i.'">
+                                      Trimestre '.$i.'
+                                    </button>
+                                  </h2>
+                                  <div id="collapseThree'.$i.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.'">
+                                    <div class="accordion-body">
+                                    <div class="row">
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">#</strong>
+                                  </div>
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Documento</strong>
+                                  </div>
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Acciones</strong>
+                                  </div>
+                                  </div>';
                         while($row_sql = $resultado_sql->fetch_assoc()){
-                          echo '<tr>';
-                          echo ' <td>'.$row_sql['annio'].'</td>';
-                          echo ' <td>'.$row_sql['trimestre'].'</td>';
-                          echo ' <td><a href="docs/'.$row_sql['documento'].'">Documento<i class="bi bi-file-earmark-pdf-fill h5"></i></td>';
-                          echo ' <td><a href="prcd/editar.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i>x</a> | <a href="prcd/borrar.php?id='.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a></td>';
-                          echo '</tr>';
+                         
+                                  echo'
+                                      <div class="row">
+                                      <div class="col-4 text-center text-dark border">
+                                          '.$row_sql['id'].'
+                                      </div>
+                                      <div class="col-4 text-center text-dark border">
+                                          '.$row_sql['documento'].'
+                                      </div>
+                                      <div class="col-4 text-center text-dark border">
+                                      <a href="prcd/editar.php?id='.$row_sqAnnio['id'].'" style="text-decoration:none" class=""><i class="bi bi-pencil-square"></i></a> | <a href="prcd/borrar.php?id='.$row_sqAnnio['id'].'" style="text-decoration:none" class=""><i class="bi bi-trash-fill"></i></a>
+                                      </div>
+                                  </div>';
+
+                                  
+                                  $documento = $row_sql['documento'];
+                                  $doc = "SELECT * FROM archivo WHERE id = '$documento'";
+                                  $resultadoDoc = $conn->query($doc);
+                                  
+                                  while($rowDoc = $resultadoDoc->fetch_assoc()){
+                                    
+                                    echo '
+                                    <div class="row">
+                                          <div class="col-4 text-center text-dark border">
+                                          '.$row_sql['id'].'
+                                          </div>
+                                          <div class="col-4 text-center text-dark border">
+                                              '.$row_sql['documento'].'
+                                          </div>
+                                          <div class="col-4 text-center text-dark border">
+                                              '.$row_sql['trimestre'].'
+                                          </div>
+                                    </div>';
+                                }
+                                echo'
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            
+
+                            </td>
+                          </tr>
+                          ';
+                        }
+                      }
                         }
                       ?>
                     </tbody>
