@@ -42,8 +42,7 @@ include('prcd/conn.php');
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
-  <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   
@@ -210,12 +209,11 @@ include('prcd/conn.php');
                 </form>
 
                 <div class="table-responsive p-5">
-                  <table class="table table-sm table-bordered table-dark table-striped table-hover align-middle text-center">
-                    <thead class="table-secondary text-dark">
+                  <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
+                    <thead class="table-dark text-light">
                       <tr>
                        <span class="lead"><h5 class="pb-2 border-bottom text-secondary"><i class="bi bi-files"></i> Documentos cargados</h5></span>
                         <th>Año</th>
-                        <th colspan="3"></th>
                         
                       </tr>
                     </thead>
@@ -229,7 +227,6 @@ include('prcd/conn.php');
 
                         echo '<tr>';
                         echo '<td>'.$row_sqAnnio['annio'].'</td>';
-                        echo '<td colspan="3"></td>';
                        
                         echo '</tr>';
                        
@@ -237,22 +234,22 @@ include('prcd/conn.php');
                             echo'
                             <tr>';
                             echo'
-                            <td colspan="4">
+                            <td >
                               <div class="accordion accordion-flush" id="accordionExample'.$i.$annio.'">
                                 <div class="accordion-item">
                                   <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
-                                      Trimestre '.$i.$annio.'
+                                      Trimestre '.$i.'
                                     </button>
                                   </h2>
                                   <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
                                     <div class="accordion-body">
                                     <div class="row">
                                   <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">#</strong>
+                                      <strong class="text-light">Documento</strong>
                                   </div>
                                   <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Documento</strong>
+                                      <strong class="text-light">Link</strong>
                                   </div>
                                   <div class="col-4 text-center border bg-primary">
                                       <strong class="text-light">Acciones</strong>
@@ -266,13 +263,13 @@ include('prcd/conn.php');
                                     echo '
                                     <div class="row">
                                           <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['id'].'
+                                          '.$row_sql['subcategoria'].'
                                           </div>
                                           <div class="col-4 text-center text-dark border">
                                               '.$row_sql['documento'].'
                                           </div>
                                           <div class="col-4 text-center text-dark border">
-                                              '.$row_sql['trimestre'].'
+                                          <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
                                           </div>
                                     </div>';
                                 }
@@ -317,4 +314,3 @@ $(document).ready(function(){
 });
 </script>
 
-<script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
