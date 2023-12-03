@@ -266,7 +266,10 @@ include('prcd/conn.php');
                                           '.$row_sql['subcategoria'].'
                                           </div>
                                           <div class="col-4 text-center text-dark border">
-                                              '.$row_sql['documento'].'
+                                          <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
+                                            <i class="bi bi-filetype-pdf"></i> 
+                                            Ver documento
+                                          </a>
                                           </div>
                                           <div class="col-4 text-center text-dark border">
                                           <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
