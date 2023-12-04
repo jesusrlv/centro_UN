@@ -66,6 +66,11 @@
   <symbol id="exit" viewBox="0 0 16 16">
     <path fill-rule="door-open-fill" d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
   </symbol>
+ 
+  <symbol id="maletin" viewBox="0 0 16 16">
+    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5"/>
+    <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85z"/>
+  </symbol>
 </svg>
 
 
@@ -93,7 +98,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_manual_contabilidad.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
+        <a href="04_ayudas_subsidios.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="05_manual_contabilidad.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#manual"/></svg>
         </a>
       </li>
@@ -150,11 +160,22 @@
             </div>
             <div class="feature col">
               <div class="feature-icon bg-primary bg-gradient">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#manual"/></svg>
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#cuentapub"/></svg>
+              </div>
+              <h2>Ayudas y subsidios</h2>
+              <p>Consulta y carga del manual de contabilidad.</p>
+              <a href="04_ayudas_subsidios.php" class="icon-link">
+              <i class="bi bi-arrow-right"></i> Acceder
+              <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#maletin"/></svg>
               </div>
               <h2>Manual de contabilidad</h2>
               <p>Consulta y carga del manual de contabilidad.</p>
-              <a href="04_manual_contabilidad.php" class="icon-link">
+              <a href="05_manual_contabilidad.php" class="icon-link">
               <i class="bi bi-arrow-right"></i> Acceder
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
               </a>
