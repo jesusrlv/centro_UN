@@ -98,7 +98,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_ayudas_subsidios.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
+        <a href="04_ayudas_subsidios.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Ayudas y subsidios">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
         </a>
       </li>
