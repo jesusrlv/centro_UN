@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
@@ -97,7 +96,7 @@ include('prcd/conn.php');
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
-        <a href="01_estados_financieros.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
+        <a href="01_estados_financieros.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#edofin"/></svg>
         </a>
       </li>
@@ -107,12 +106,12 @@ include('prcd/conn.php');
         </a>
       </li>
       <li class="nav-item">
-        <a href="03_cuenta_publica.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
+        <a href="03_cuenta_publica.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Cuenta pública">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_manual_contabilidad.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
+        <a href="04_manual_contabilidad.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#manual"/></svg>
         </a>
       </li>
@@ -133,7 +132,7 @@ include('prcd/conn.php');
     <div class="p-4 m-5 bg-light rounded-3">
         <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
           <h2 class="pb-2 ">INJUVENTUD | Zacatecas, Zac.</h2>
-          <h4 class="pb-2 border-bottom text-secondary">Estados financieros</h4>          
+          <h4 class="pb-2 border-bottom text-secondary">Avance de gestión</h4>          
             <div>     
                 <form class="row g-3 py-5 mx-5 border-bottom" action="prcd/01_alta.php" method="POST" enctype="multipart/form-data">
                     <div class="col-md-6">
@@ -165,13 +164,14 @@ include('prcd/conn.php');
                       </select>
                       </div>
                     </div>
+
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></div>
                           <select class="form-select" id="inputGroupSelect02" name="subcategoria" required>
                           <option selected value="">Categoría...</option>
                           <?php 
-                          $sqlCategoria = "SELECT * FROM categoria WHERE topico = 1 ORDER BY id ASC";
+                          $sqlCategoria = "SELECT * FROM categoria WHERE topico = 2 ORDER BY id ASC";
                           $resultadoCategoria = $conn->query($sqlCategoria);
                           while($rowCategoria = $resultadoCategoria->fetch_assoc()){
                             echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['categoria'].'</option>';

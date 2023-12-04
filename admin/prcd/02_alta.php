@@ -14,8 +14,8 @@
 
     $annio = $_POST['annio'];
     $trimestre = $_POST['trimestre'];
-    $subcategoria = 1;
-    $categoria = 17;
+    $subcategoria = $_POST['subcategoria'];
+    $categoria = 2;
 
     $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
     // $annio = substr($fecha_sistema, 0, 4);

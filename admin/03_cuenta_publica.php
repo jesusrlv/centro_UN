@@ -1,3 +1,22 @@
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+  $id = $_SESSION['id'];
+  echo'
+  <script>
+    console.log("Acceso correcto +'.$id.'");
+  </script>
+  ';
+}
+else{
+  echo'
+  <script>
+    console.log("Sin variable de sesión");
+  </script>
+  ';
+}
+include('prcd/conn.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +25,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -77,12 +95,12 @@
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
-        <a href="01_estados_financieros.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
+        <a href="01_estados_financieros.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Estados financieros">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#edofin"/></svg>
         </a>
       </li>
       <li class="nav-item">
-        <a href="02_avance_gestion.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Avance de gestión">
+        <a href="02_avance_gestion.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Avance de gestión">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#avance"/></svg>
         </a>
       </li>
@@ -92,7 +110,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_manual_contabilidad.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
+        <a href="04_manual_contabilidad.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#manual"/></svg>
         </a>
       </li>
@@ -116,12 +134,13 @@
           <h4 class="pb-2 border-bottom text-secondary">Cuenta pública</h4>
             
             
-                <form class="row g-3 py-5 mx-5 border-bottom">
-                    <div class="col-md-4">
+                <form class="row g-3 py-5 mx-5 border-bottom" action="prcd/03_alta.php" method="POST" enctype="multipart/form-data">
+
+                    <div class="col-md-6">
                     <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
-                        <select class="form-select" id="inputGroupSelect01">
-                        <option selected>Año...</option>
+                        <select class="form-select" id="inputGroupSelect01" name="annio" required>
+                        <option selected value="">Año...</option>
                         <option value="2015">2015</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -134,27 +153,26 @@
                     
                     </div>
 
-                    <div class="col-md-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
-                        <select class="form-select" id="inputGroupSelect02">
-                        <option selected>Categoría...</option>
-                        <option value="1">Información contable</option>
-                        <option value="2">Información presupuestal</option>
-                        <option value="3">Información programática</option>
-                        <option value="4">Información fiscal</option>
-                        <option value="5">Formatos de disciplina financiera</option>
-                        <option value="6">Notas a los estados financieros</option>
-                        <option value="7">Anexos</option>
-                        
-                    </select>
-                    </div>
-                    
+                    <div class="col-md-6">
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect02" name="subcategoria" required>
+                          <option selected value="">Categoría...</option>
+                          <?php 
+                          $sqlCategoria = "SELECT * FROM categoria WHERE topico = 3 ORDER BY id ASC";
+                          $resultadoCategoria = $conn->query($sqlCategoria);
+                          while($rowCategoria = $resultadoCategoria->fetch_assoc()){
+                            echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['categoria'].'</option>';
+                          }
+                          ?>
+                          
+                      </select>
+                      </div>
                     </div>
                     
                     <div class="col-12">
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="inputGroupFile01">
+                            <input type="file" class="form-control" id="inputGroupFile01" name="file1" required>
                         </div>
                     </div>
                     
@@ -167,35 +185,88 @@
                 <!-- tabla -->
                 <div class="table-responsive p-5">
                   <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
-                    <thead class="table-dark text-white">
+                    <thead class="table-dark text-light">
                       <tr>
-                       <span class="lead"><i class="bi bi-files"></i> Documentos cargados</span>
+                       <span class="lead"><h5 class="pb-2 border-bottom text-secondary"><i class="bi bi-files"></i> Documentos cargados</h5></span>
                         <th>Año</th>
-                        <th>Categoría</th>
-                        <th>Documento</th>
-                        <th>Acción</th>
+                        
                       </tr>
                     </thead>
-                    <tbody>
-                      
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
+                    <tbody class="text-light">
+                      <?php 
+                      $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+                      $resultado_sqlAnnio = $conn->query($sqlAnnio);
+                      while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
+                        $annio = $row_sqAnnio['annio'];
+                        $trimestres = 4;
+
+                        echo '<tr>';
+                        echo '<td>'.$row_sqAnnio['annio'].'</td>';
+                       
+                        echo '</tr>';
+                       
+                        for ($i = 1; $i <= 1; $i++) {                           
+                            echo'
+                            <tr>';
+                            echo'
+                            <td >
+                              <div class="accordion accordion-flush" id="accordionExample'.$i.$annio.'">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
+                                      Trimestre '.$i.'
+                                    </button>
+                                  </h2>
+                                  <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
+                                    <div class="accordion-body">
+                                    <div class="row">
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Documento</strong>
+                                  </div>
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Link</strong>
+                                  </div>
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Acciones</strong>
+                                  </div>
+                                  </div>';
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND subcategoria BETWEEN 8 AND 13";
+                                  $resultado_sql = $conn->query($sql);
+                                  while($row_sql = $resultado_sql->fetch_assoc()){
+
+                             
+                                    echo '
+                                    <div class="row">
+                                          <div class="col-4 text-center text-dark border">
+                                          '.$row_sql['subcategoria'].'
+                                          </div>
+                                          <div class="col-4 text-center text-dark border">
+                                          <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
+                                            <i class="bi bi-filetype-pdf"></i> 
+                                            Ver documento
+                                          </a>
+                                          </div>
+                                          <div class="col-4 text-center text-dark border">
+                                          <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
+                                          </div>
+                                    </div>';
+                                }
+                                echo'
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            
+
+                            </td>
+                          </tr>
+                          ';
+                        // }
+                      }
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div>
@@ -216,5 +287,3 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
-
-<script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
