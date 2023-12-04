@@ -1,22 +1,21 @@
 <?php
 
-// session_start();
-
-// if (isset($_SESSION['usr'])) {
-//   if($_SESSION['perfil']==2){
-
-//   }
-//   else{
-//     header('Location: prcd/sort.php');
-//     die();
-//   }
-  
-// } else {
-//   // En caso contrario redirigimos el visitante a otra página
-
-//   header('Location: prcd/sort.php');
-//   die();
-// }
+session_start();
+if(isset($_SESSION['id'])){
+  $id = $_SESSION['id'];
+  echo'
+  <script>
+    console.log("Acceso correcto +'.$id.'");
+  </script>
+  ';
+}
+else{
+  echo'
+  <script>
+    console.log("Sin variable de sesión");
+  </script>
+  ';
+}
 include('prcd/conn.php');
 ?>
 <!DOCTYPE html>
@@ -28,7 +27,6 @@ include('prcd/conn.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>
   <link href="../css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -131,47 +129,62 @@ include('prcd/conn.php');
   
   <!-- <div class="b-example-divider"></div> -->
 
-<div class="container-fluid" style="height:auto;">
+  <div class="container-fluid" style="height:auto;">
     <div class="p-4 m-5 bg-light rounded-3">
         <h1 class="display-5 fw-bold"><i class="bi bi-folder"></i> Sistema de carga de archivos</h1>
           <h2 class="pb-2 ">INJUVENTUD | Zacatecas, Zac.</h2>
-          <h4 class="pb-2 border-bottom text-secondary">Avance de gestión</h4>
-           
-                <form class="row g-3 py-5 mx-5 border-bottom">
+          <h4 class="pb-2 border-bottom text-secondary">Estados financieros</h4>          
+            <div>     
+                <form class="row g-3 py-5 mx-5 border-bottom" action="prcd/01_alta.php" method="POST" enctype="multipart/form-data">
                     <div class="col-md-6">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
-                        <select class="form-select" id="inputGroupSelect01">
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                    </select>
-                    </div>
-                    
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect01" name="annio" required>
+                          <option selected value="">Año...</option>
+                          <?php 
+                          $sqlAnnio2 = "SELECT * FROM annio ORDER BY id ASC";
+                          $resultadoAnnio2 = $conn->query($sqlAnnio2);
+                          while($rowAnnio2 = $resultadoAnnio2->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio2['annio'].'">'.$rowAnnio2['annio'].'</option>';
+                          }
+                          ?>
+                      </select>
+                      </div>
                     </div>
 
                     <div class="col-md-6">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></i></div>
-                        <select class="form-select" id="inputGroupSelect02">
-                        <option selected>Trimestre...</option>
-                        <option value="1">Primero</option>
-                        <option value="2">Segundo</option>
-                        <option value="3">Tercero</option>
-                        <option value="4">Cuarto</option>
-                        
-                    </select>
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect02" name="trimestre" required>
+                          <option selected value="">Trimestre...</option>
+                          <option value="1">Primero</option>
+                          <option value="2">Segundo</option>
+                          <option value="3">Tercero</option>
+                          <option value="4">Cuarto</option>
+                          
+                      </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect02" name="subcategoria" required>
+                          <option selected value="">Categoría...</option>
+                          <?php 
+                          $sqlCategoria = "SELECT * FROM categoria WHERE topico = 1 ORDER BY id ASC";
+                          $resultadoCategoria = $conn->query($sqlCategoria);
+                          while($rowCategoria = $resultadoCategoria->fetch_assoc()){
+                            echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['categoria'].'</option>';
+                          }
+                          ?>
+                          
+                      </select>
+                      </div>
                     </div>
                     
-                    </div>
-                    
-                    <div class="col-12">
-                        <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="inputGroupFile01">
+                    <div class="col-md-12">
+                        <div class="input-group mb-3 w-50">
+                            <input type="file" class="form-control" id="inputGroupFile01" name="file1" required>
                         </div>
                     </div>
                     
@@ -180,58 +193,101 @@ include('prcd/conn.php');
                         <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                     </div>
                 </form>
-                <!-- tabla -->
+
                 <div class="table-responsive p-5">
                   <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
-                    <thead class="table-dark text-white">
+                    <thead class="table-dark text-light">
                       <tr>
-                       <span class="lead"><i class="bi bi-files"></i> Documentos cargados</span>
+                       <span class="lead"><h5 class="pb-2 border-bottom text-secondary"><i class="bi bi-files"></i> Documentos cargados</h5></span>
                         <th>Año</th>
-                        <th>Trimestre</th>
-                        <th>Documento</th>
-                        <th>Acción</th>
+                        
                       </tr>
                     </thead>
-                    <tbody>
-                    <?php 
-                        $sql = "SELECT * FROM archivo WHERE categoria = 2 ORDER BY annio";
-                        $resultado_sql = $conn->query($sql);
-                        // $row_sql = $resultado_sql->fetch_assoc();
-                        while($row_sql = $resultado_sql->fetch_assoc()){
-                          echo '<tr>';
-                          echo ' <td>'.$row_sql['annio'].'</td>';
-                          echo ' <td>'.$row_sql['categoria'].'</td>';
-                          echo ' <td><a href="../docs/'.$row_sql['documento'].'"><i class="bi bi-file-earmark-pdf-fill h5"></i></td>';
-                          echo ' <td><a href="prcd/editar.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a> | <a href="prcd/borrar.php?id='.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a></td>';
-                          echo '</tr>';
+                    <tbody class="text-light">
+                      <?php 
+                      $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+                      $resultado_sqlAnnio = $conn->query($sqlAnnio);
+                      while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
+                        $annio = $row_sqAnnio['annio'];
+                        $trimestres = 4;
+
+                        echo '<tr>';
+                        echo '<td>'.$row_sqAnnio['annio'].'</td>';
+                       
+                        echo '</tr>';
+                       
+                        for ($i = 1; $i <= 4; $i++) {                           
+                            echo'
+                            <tr>';
+                            echo'
+                            <td >
+                              <div class="accordion accordion-flush" id="accordionExample'.$i.$annio.'">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
+                                      Trimestre '.$i.'
+                                    </button>
+                                  </h2>
+                                  <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
+                                    <div class="accordion-body">
+                                    <div class="row">
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Documento</strong>
+                                  </div>
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Link</strong>
+                                  </div>
+                                  <div class="col-4 text-center border bg-primary">
+                                      <strong class="text-light">Acciones</strong>
+                                  </div>
+                                  </div>';
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND categoria = 17 ORDER BY trimestre DESC";
+                                  $resultado_sql = $conn->query($sql);
+                                  while($row_sql = $resultado_sql->fetch_assoc()){
+
+                             
+                                    echo '
+                                    <div class="row">
+                                          <div class="col-4 text-center text-dark border">
+                                          '.$row_sql['subcategoria'].'
+                                          </div>
+                                          <div class="col-4 text-center text-dark border">
+                                          <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
+                                            <i class="bi bi-filetype-pdf"></i> 
+                                            Ver documento
+                                          </a>
+                                          </div>
+                                          <div class="col-4 text-center text-dark border">
+                                          <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
+                                          </div>
+                                    </div>';
+                                }
+                                echo'
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            
+
+                            </td>
+                          </tr>
+                          ';
+                        // }
+                      }
                         }
                       ?>
-                      
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
-                      <tr>
-                        <td>Celda 1</td>
-                        <td>Celda 2</td>
-                        <td>Celda 3</td>
-                        <td>Celda 4</td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
-                <!-- tabla -->
+
+            </div>
             
+          </div>
+
     </div>
-  </div>
+</div>
 
   </main>
 
@@ -247,4 +303,3 @@ $(document).ready(function(){
 });
 </script>
 
-<script src="../css/assets/dist/js/bootstrap.bundle.min.js"></script>

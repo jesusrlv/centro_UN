@@ -153,8 +153,8 @@ include('prcd/conn.php');
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
-                          <select class="form-select" id="inputGroupSelect01" name="annio">
-                          <option selected>Año...</option>
+                          <select class="form-select" id="inputGroupSelect01" name="annio" required>
+                          <option selected value="">Año...</option>
                           <?php 
                           $sqlAnnio2 = "SELECT * FROM annio ORDER BY id ASC";
                           $resultadoAnnio2 = $conn->query($sqlAnnio2);
@@ -169,8 +169,8 @@ include('prcd/conn.php');
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-calendar-week-fill"></i></div>
-                          <select class="form-select" id="inputGroupSelect02" name="trimestre">
-                          <option selected>Trimestre...</option>
+                          <select class="form-select" id="inputGroupSelect02" name="trimestre" required>
+                          <option selected value="">Trimestre...</option>
                           <option value="1">Primero</option>
                           <option value="2">Segundo</option>
                           <option value="3">Tercero</option>
@@ -182,8 +182,8 @@ include('prcd/conn.php');
                     <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></div>
-                          <select class="form-select" id="inputGroupSelect02" name="subcategoria">
-                          <option selected>Categoría...</option>
+                          <select class="form-select" id="inputGroupSelect02" name="subcategoria" required>
+                          <option selected value="">Categoría...</option>
                           <?php 
                           $sqlCategoria = "SELECT * FROM categoria WHERE topico = 1 ORDER BY id ASC";
                           $resultadoCategoria = $conn->query($sqlCategoria);
@@ -198,7 +198,7 @@ include('prcd/conn.php');
                     
                     <div class="col-md-12">
                         <div class="input-group mb-3 w-50">
-                            <input type="file" class="form-control" id="inputGroupFile01" name="file1">
+                            <input type="file" class="form-control" id="inputGroupFile01" name="file1" required>
                         </div>
                     </div>
                     
@@ -255,7 +255,7 @@ include('prcd/conn.php');
                                       <strong class="text-light">Acciones</strong>
                                   </div>
                                   </div>';
-                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' ORDER BY trimestre DESC";
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' ORDER BY trimestre AND categoria < 17 DESC";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
 
