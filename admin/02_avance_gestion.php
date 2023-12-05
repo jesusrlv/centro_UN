@@ -111,7 +111,7 @@ include('prcd/conn.php');
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_ayudas_subsidios.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Ayudas y subsidios">
+        <a href="04_ayudas_subsidios.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Ayudas y subsidios">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
         </a>
       </li>
@@ -246,7 +246,7 @@ include('prcd/conn.php');
                                       <strong class="text-light">Acciones</strong>
                                   </div>
                                   </div>';
-                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND categoria = 17 ORDER BY trimestre DESC";
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria = 7 ORDER BY trimestre DESC";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
 

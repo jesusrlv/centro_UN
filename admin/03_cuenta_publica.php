@@ -110,12 +110,12 @@ include('prcd/conn.php');
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_ayudas_subsidios.php" class="nav-link bg-warning py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Ayudas y subsidios">
+        <a href="04_ayudas_subsidios.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Ayudas y subsidios">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#cuentapub"/></svg>
         </a>
       </li>
       <li class="nav-item">
-        <a href="04_manual_contabilidad.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
+        <a href="05_manual_contabilidad.php" class="nav-link bg-light py-3 border-bottom" data-toggle="tooltip" data-placement="right" data-bs-placement="right" title="Manual de contabilidad">
           <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#manual"/></svg>
         </a>
       </li>
@@ -141,21 +141,20 @@ include('prcd/conn.php');
             
                 <form class="row g-3 py-5 mx-5 border-bottom" action="prcd/03_alta.php" method="POST" enctype="multipart/form-data">
 
-                    <div class="col-md-6">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
-                        <select class="form-select" id="inputGroupSelect01" name="annio" required>
-                        <option selected value="">Año...</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                    </select>
-                    </div>
-                    
+                <div class="col-md-6">
+                      <div class="input-group">
+                          <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
+                          <select class="form-select" id="inputGroupSelect01" name="annio" required>
+                          <option selected value="">Año...</option>
+                          <?php 
+                          $sqlAnnio2 = "SELECT * FROM annio ORDER BY id ASC";
+                          $resultadoAnnio2 = $conn->query($sqlAnnio2);
+                          while($rowAnnio2 = $resultadoAnnio2->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio2['annio'].'">'.$rowAnnio2['annio'].'</option>';
+                          }
+                          ?>
+                      </select>
+                      </div>
                     </div>
 
                     <div class="col-md-6">

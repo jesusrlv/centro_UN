@@ -260,7 +260,7 @@ include('prcd/conn.php');
                                       <strong class="text-light">Acciones</strong>
                                   </div>
                                   </div>';
-                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND categoria < 17 ORDER BY trimestre  DESC";
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria < 7 ORDER BY trimestre  DESC";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
 

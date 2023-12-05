@@ -34,10 +34,10 @@
     $archivo_ext=$_FILES['file1']['name'];
     $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
 
-    if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$id.'_'.$annio.'_'.$trimestre.'_'.$categoria.'.'.$extension)){
+    if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$id.'_'.$annio.'_'.$trimestre.'_'.$categoria.'_'.$subcategoria.'.'.$extension)){
         // echo "$fileName carga completa";     
         
-        $ruta = $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
+        $ruta = $id .'_'.$annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
 
         $sql = "INSERT INTO archivo(
             fecha,
@@ -61,7 +61,7 @@
             <script>
             Swal.fire({
                 icon: 'success',
-                imageUrl: '../assets/brand/img/logo_store_shoes_sin_fondo.png',
+                imageUrl: '../../css/assets/brand/img/logo_injuventud_02.png',
                 imageHeight: 200,
                 imageAlt: 'INJUVENTUD',
                 title: 'Carga completa',
