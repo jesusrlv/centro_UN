@@ -212,6 +212,23 @@ include('prcd/conn.php');
                         <a href="dashboard.php" type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                     </div>
                 </form>
+                
+                <div class="col-md-12 p-5">
+                <span class="lead"><h5 class="pb-2 text-secondary"> <i class="bi bi-list-ol"></i> Año</h5></span>
+                  <input type="text" value="1" id="valueAnnio" hidden>
+                  <select class="form-select" id="selectAnnio" onchange="annio(this.value)">
+                    <option value="" selected>Selecciona año...</option>
+                    <?php 
+                          $sqlAnnio2 = "SELECT * FROM annio ORDER BY id DESC";
+                          $resultadoAnnio2 = $conn->query($sqlAnnio2);
+                          while($rowAnnio2 = $resultadoAnnio2->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio2['annio'].'">'.$rowAnnio2['annio'].'</option>';
+                          }
+                          ?>
+
+                  </select>
+                </div>
+
 
                 <div class="table-responsive p-5">
                   <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
@@ -222,7 +239,7 @@ include('prcd/conn.php');
                         
                       </tr>
                     </thead>
-                    <tbody class="text-light">
+                    <tbody class="text-light" id="tablaAnnio">
                       <?php 
                       $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
                       $resultado_sqlAnnio = $conn->query($sqlAnnio);
