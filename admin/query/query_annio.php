@@ -1,10 +1,11 @@
 <?php 
+include('../prcd/conn.php');
 
     $annio = $_POST['a'];
-    $topico $_POST['topico'];
+    $topico = $_POST['topico'];
 
     if($topico == 1){
-    $sqlAnnio = "SELECT * FROM annio WHERE id = '$annio' ORDER BY id DESC";
+    $sqlAnnio = "SELECT * FROM annio WHERE annio = '$annio' ORDER BY id DESC";
     $resultado_sqlAnnio = $conn->query($sqlAnnio);
     while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
     $annio = $row_sqAnnio['annio'];
@@ -151,7 +152,7 @@ else if($topico == 2){
     }
       }
 }//tópico 2
-else if{
+else if ($topico == 3){
     $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
                       $resultado_sqlAnnio = $conn->query($sqlAnnio);
                       while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){

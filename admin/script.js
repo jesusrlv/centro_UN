@@ -3,12 +3,13 @@ function annio(a){
     $.ajax({
         type: "POST",
         url: "query/query_annio.php",
+        dataType: "html",
         data: {
             a:a,
             topico:topico
         },
         success: function(data) {
-            
+            $('#tablaAnnio').fadeIn(1000).html(data)
         }
     });
 }
