@@ -30,16 +30,16 @@ include('../prcd/conn.php');
                 </h2>
                 <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
                 <div class="accordion-body">
-                <div class="row">
-                <div class="col-4 text-center border bg-primary">
-                    <strong class="text-light">Documento</strong>
-                </div>
-                <div class="col-4 text-center border bg-primary">
-                    <strong class="text-light">Link</strong>
-                </div>
-                <div class="col-4 text-center border bg-primary">
-                    <strong class="text-light">Acciones</strong>
-                </div>
+                  <div class="row">
+                    <div class="col-4 text-center border bg-primary">
+                        <strong class="text-light">Documento</strong>
+                    </div>
+                    <div class="col-4 text-center border bg-primary">
+                        <strong class="text-light">Link</strong>
+                    </div>
+                    <div class="col-4 text-center border bg-primary">
+                        <strong class="text-light">Acciones</strong>
+                    </div>
                 </div>';
                 $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria < 7 ORDER BY trimestre  DESC";
                 $resultado_sql = $conn->query($sql);
@@ -58,9 +58,63 @@ include('../prcd/conn.php');
                         </a>
                         </div>
                         <div class="col-4 text-center text-dark border">
-                        <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
+                        <a href="#" onclick="editarDoc('.$row_sql['id'].')" data-bs-toggle="modal" data-bs-target="#editarDoc'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a> | <a href="" onclick=borrarDoc('.$row_sql['id'].'" data-bs-toggle="modal" data-bs-target="#eliminarDoc'.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
                         </div>
-                </div>';
+                </div>
+                <!-- Modal editar -->
+                <div class="modal fade" id="editarDoc'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar documento</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                              <div class="col-md-12">
+                              <div class="input-group mb-3">
+                                  <input type="file" class="form-control" id="inputGroupFile01" name="file1" required>
+                              </div>
+                          </div>
+                          
+                         
+                      </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal eliminar -->
+                <div class="modal fade bg-danger" id="eliminarDoc'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar documento</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                              <div class="col-md-12 text-center">
+                              
+                                  <h5 class="">¿Desea eliminar el archivo?</h5>
+                             
+                          </div>
+                          
+                         
+                      </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Eliminar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ';
             }
             echo'
 

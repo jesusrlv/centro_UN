@@ -13,3 +13,7 @@ function annio(a){
         }
     });
 }
+
+function editarDoc(id){
+    console.log("Inicia function");
+}
