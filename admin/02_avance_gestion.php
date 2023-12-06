@@ -44,6 +44,9 @@ include('prcd/conn.php');
    <!-- Custom styles for this template -->
    <link href="../css/features.css" rel="stylesheet">
 
+   <script src="script.js"></script>
+
+
 </head>
 
 <style>
@@ -199,6 +202,22 @@ include('prcd/conn.php');
                     </div>
                 </form>
 
+                <div class="col-md-12 p-5">
+                <span class="lead"><h5 class="pb-2 text-secondary"> <i class="bi bi-list-ol"></i> Año</h5></span>
+                  <input type="text" value="2" id="valueAnnio" hidden>
+                  <select class="form-select" id="selectAnnio" onchange="annio(this.value)">
+                    <option value="" selected>Selecciona año...</option>
+                    <?php 
+                          $sqlAnnio2 = "SELECT * FROM annio ORDER BY id DESC";
+                          $resultadoAnnio2 = $conn->query($sqlAnnio2);
+                          while($rowAnnio2 = $resultadoAnnio2->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio2['annio'].'">'.$rowAnnio2['annio'].'</option>';
+                          }
+                          ?>
+
+                  </select>
+                </div>
+
                 <div class="table-responsive p-5">
                   <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
                     <thead class="table-dark text-light">
@@ -208,81 +227,8 @@ include('prcd/conn.php');
                         
                       </tr>
                     </thead>
-                    <tbody class="text-light">
-                      <?php 
-                      $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
-                      $resultado_sqlAnnio = $conn->query($sqlAnnio);
-                      while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
-                        $annio = $row_sqAnnio['annio'];
-                        $trimestres = 4;
-
-                        echo '<tr>';
-                        echo '<td>'.$row_sqAnnio['annio'].'</td>';
-                       
-                        echo '</tr>';
-                       
-                        for ($i = 1; $i <= 4; $i++) {                           
-                            echo'
-                            <tr>';
-                            echo'
-                            <td >
-                              <div class="accordion accordion-flush" id="accordionExample'.$i.$annio.'">
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
-                                      Trimestre '.$i.'
-                                    </button>
-                                  </h2>
-                                  <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
-                                    <div class="accordion-body">
-                                    <div class="row">
-                                  <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Documento</strong>
-                                  </div>
-                                  <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Link</strong>
-                                  </div>
-                                  <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Acciones</strong>
-                                  </div>
-                                  </div>';
-                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria = 7 ORDER BY trimestre DESC";
-                                  $resultado_sql = $conn->query($sql);
-                                  while($row_sql = $resultado_sql->fetch_assoc()){
-
-                             
-                                    echo '
-                                    <div class="row">
-                                          <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['subcategoria'].'
-                                          </div>
-                                          <div class="col-4 text-center text-dark border">
-                                          <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
-                                            <i class="bi bi-filetype-pdf"></i> 
-                                            Ver documento
-                                          </a>
-                                          </div>
-                                          <div class="col-4 text-center text-dark border">
-                                          <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
-                                          </div>
-                                    </div>';
-                                }
-                                echo'
-
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            
-
-                            </td>
-                          </tr>
-                          ';
-                        // }
-                      }
-                        }
-                      ?>
+                    <tbody class="text-light" id="tablaAnnio">
+                     
                     </tbody>
                   </table>
                 </div>

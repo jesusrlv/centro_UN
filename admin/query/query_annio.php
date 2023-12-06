@@ -77,9 +77,9 @@ include('../prcd/conn.php');
     // }
     }
     }
-} //tópico
+} //tópico 1
 else if($topico == 2){
-    $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+    $sqlAnnio = "SELECT * FROM annio WHERE annio = '$annio' ORDER BY id DESC";
     $resultado_sqlAnnio = $conn->query($sqlAnnio);
     while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
       $annio = $row_sqAnnio['annio'];
@@ -153,7 +153,7 @@ else if($topico == 2){
       }
 }//tópico 2
 else if ($topico == 3){
-    $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+    $sqlAnnio = "SELECT * FROM annio WHERE annio = '$annio' ORDER BY id DESC";
                       $resultado_sqlAnnio = $conn->query($sqlAnnio);
                       while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
                         $annio = $row_sqAnnio['annio'];
@@ -173,7 +173,7 @@ else if ($topico == 3){
                                 <div class="accordion-item">
                                   <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
-                                      Trimestre '.$i.'
+                                      Cuenta pública
                                     </button>
                                   </h2>
                                   <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
@@ -217,8 +217,6 @@ else if ($topico == 3){
                               </div>
                             </div>
 
-                            
-
                             </td>
                           </tr>
                           ';
@@ -227,7 +225,7 @@ else if ($topico == 3){
                         }
 } //tópico 3
 else if($topico == 4){
-    $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+    $sqlAnnio = "SELECT * FROM annio WHERE annio = '$annio' ORDER BY id DESC";
                       $resultado_sqlAnnio = $conn->query($sqlAnnio);
                       while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
                         $annio = $row_sqAnnio['annio'];
@@ -291,8 +289,6 @@ else if($topico == 4){
                               </div>
                             </div>
 
-                            
-
                             </td>
                           </tr>
                           ';
@@ -301,18 +297,18 @@ else if($topico == 4){
                         }
 } //tópico 4
 else if($topico == 5){
-    $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
+    $sqlAnnio = "SELECT * FROM annio WHERE annio = '$annio' ORDER BY id DESC";
                       $resultado_sqlAnnio = $conn->query($sqlAnnio);
                       while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
                         $annio = $row_sqAnnio['annio'];
-                        $trimestres = 4;
+                        $trimestres = 1;
 
                         echo '<tr>';
                         echo '<td>'.$row_sqAnnio['annio'].'</td>';
                        
                         echo '</tr>';
                        
-                        for ($i = 1; $i <= 4; $i++) {                           
+                        for ($i = 1; $i <= 1; $i++) {                           
                             echo'
                             <tr>';
                             echo'
@@ -321,7 +317,7 @@ else if($topico == 5){
                                 <div class="accordion-item">
                                   <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
-                                      Trimestre '.$i.'
+                                      Manual de contabilidad
                                     </button>
                                   </h2>
                                   <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
@@ -337,7 +333,7 @@ else if($topico == 5){
                                       <strong class="text-light">Acciones</strong>
                                   </div>
                                   </div>';
-                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND categoria = 2 ORDER BY trimestre DESC";
+                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND subcategoria = 15";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
 
@@ -364,9 +360,6 @@ else if($topico == 5){
                                 </div>
                               </div>
                             </div>
-
-                            
-
                             </td>
                           </tr>
                           ';

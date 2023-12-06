@@ -47,7 +47,7 @@ include('prcd/conn.php');
 
    <!-- Custom styles for this template -->
    <link href="../css/features.css" rel="stylesheet">
-<script src="script.js"></script>
+   <script src="script.js"></script>
 </head>
 
 <style>
@@ -213,7 +213,6 @@ include('prcd/conn.php');
 
                   </select>
                 </div>
-
 
                 <div class="table-responsive p-5">
                   <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">

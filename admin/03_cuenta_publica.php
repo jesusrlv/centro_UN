@@ -29,7 +29,6 @@ include('prcd/conn.php');
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -42,6 +41,7 @@ include('prcd/conn.php');
 
    <!-- Custom styles for this template -->
    <link href="../css/features.css" rel="stylesheet">
+   <script src="script.js"></script>
 
 </head>
 
@@ -140,7 +140,7 @@ include('prcd/conn.php');
             
             
                 <form class="row g-3 py-5 mx-5 border-bottom" action="prcd/03_alta.php" method="POST" enctype="multipart/form-data">
-
+                
                 <div class="col-md-6">
                       <div class="input-group">
                           <div class="input-group-text"><i class="bi bi-calendar-event-fill"></i></div>
@@ -186,6 +186,22 @@ include('prcd/conn.php');
                     </div>
                 </form>
 
+                <div class="col-md-12 p-5">
+                <span class="lead"><h5 class="pb-2 text-secondary"> <i class="bi bi-list-ol"></i> Año</h5></span>
+                  <input type="text" value="3" id="valueAnnio" hidden>
+                  <select class="form-select" id="selectAnnio" onchange="annio(this.value)">
+                    <option value="" selected>Selecciona año...</option>
+                    <?php 
+                          $sqlAnnio2 = "SELECT * FROM annio ORDER BY id DESC";
+                          $resultadoAnnio2 = $conn->query($sqlAnnio2);
+                          while($rowAnnio2 = $resultadoAnnio2->fetch_assoc()){
+                            echo '<option value="'.$rowAnnio2['annio'].'">'.$rowAnnio2['annio'].'</option>';
+                          }
+                          ?>
+
+                  </select>
+                </div>
+
                 <!-- tabla -->
                 <div class="table-responsive p-5">
                   <table class="table table-sm table-bordered table-primary table-striped table-hover align-middle text-center">
@@ -196,81 +212,8 @@ include('prcd/conn.php');
                         
                       </tr>
                     </thead>
-                    <tbody class="text-light">
-                      <?php 
-                      $sqlAnnio = "SELECT * FROM annio ORDER BY id DESC";
-                      $resultado_sqlAnnio = $conn->query($sqlAnnio);
-                      while($row_sqAnnio = $resultado_sqlAnnio->fetch_assoc()){
-                        $annio = $row_sqAnnio['annio'];
-                        $trimestres = 4;
-
-                        echo '<tr>';
-                        echo '<td>'.$row_sqAnnio['annio'].'</td>';
-                       
-                        echo '</tr>';
-                       
-                        for ($i = 1; $i <= 1; $i++) {                           
-                            echo'
-                            <tr>';
-                            echo'
-                            <td >
-                              <div class="accordion accordion-flush" id="accordionExample'.$i.$annio.'">
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree'.$i.$annio.'" aria-expanded="false" aria-controls="collapseThree'.$i.$annio.'">
-                                      Trimestre '.$i.'
-                                    </button>
-                                  </h2>
-                                  <div id="collapseThree'.$i.$annio.'" class="accordion-collapse collapse" data-bs-parent="#accordionExample'.$i.$annio.'">
-                                    <div class="accordion-body">
-                                    <div class="row">
-                                  <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Documento</strong>
-                                  </div>
-                                  <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Link</strong>
-                                  </div>
-                                  <div class="col-4 text-center border bg-primary">
-                                      <strong class="text-light">Acciones</strong>
-                                  </div>
-                                  </div>';
-                                  $sql = "SELECT * FROM archivo WHERE annio = $annio AND subcategoria BETWEEN 8 AND 13";
-                                  $resultado_sql = $conn->query($sql);
-                                  while($row_sql = $resultado_sql->fetch_assoc()){
-
-                             
-                                    echo '
-                                    <div class="row">
-                                          <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['subcategoria'].'
-                                          </div>
-                                          <div class="col-4 text-center text-dark border">
-                                          <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
-                                            <i class="bi bi-filetype-pdf"></i> 
-                                            Ver documento
-                                          </a>
-                                          </div>
-                                          <div class="col-4 text-center text-dark border">
-                                          <a onclick="editarDoc('.$row_sql['id'].')"><i class="bi bi-pencil-square"></i></a> | <a onclick=borrarDoc('.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a>
-                                          </div>
-                                    </div>';
-                                }
-                                echo'
-
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            
-
-                            </td>
-                          </tr>
-                          ';
-                        // }
-                      }
-                        }
-                      ?>
+                    <tbody class="text-light" id="tablaAnnio">
+                      
                     </tbody>
                   </table>
                 </div>
@@ -279,8 +222,6 @@ include('prcd/conn.php');
 </div>
 
   </main>
-
-  
 
 </body>
 
