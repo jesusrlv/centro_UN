@@ -49,8 +49,12 @@ include('../prcd/conn.php');
     
                   $sqlCat = "SELECT * FROM categoria WHERE id = '$categoria'";
                   $resultadoCat = $conn->query($sqlCat);
-                  $rowCat = $resultadoCat->fetch_assoc();
-                  $catFinal = $rowCat['categoria'];
+                  if($resultadoCat->num_rows == 1){
+                    $rowCat = $resultadoCat->fetch_assoc();
+                    $catFinal = $rowCat['categoria'];
+                  }else{
+                    $catFinal = "Documentos no válido";
+                  }
             
                 echo '
                 <div class="row">
