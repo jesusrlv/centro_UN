@@ -11,6 +11,7 @@ include('../prcd/conn.php');
     $annio = $row_sqAnnio['annio'];
     $trimestres = 4;
 
+
     echo '<tr>';
     echo '<td>'.$row_sqAnnio['annio'].'</td>';
     
@@ -44,12 +45,17 @@ include('../prcd/conn.php');
                 $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria < 7 ORDER BY trimestre  DESC";
                 $resultado_sql = $conn->query($sql);
                 while($row_sql = $resultado_sql->fetch_assoc()){
-
+                  $categoria = $row_sql['subcategoria'];
+    
+                  $sqlCat = "SELECT * FROM categoria WHERE id = '$categoria'";
+                  $resultadoCat = $conn->query($sqlCat);
+                  $rowCat = $resultadoCat->fetch_assoc();
+                  $catFinal = $rowCat['categoria'];
             
                 echo '
                 <div class="row">
                         <div class="col-4 text-center text-dark border">
-                        '.$row_sql['subcategoria'].'
+                        '.$catFinal.'
                         </div>
                         <div class="col-4 text-center text-dark border">
                         <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
@@ -172,12 +178,18 @@ else if($topico == 2){
                 $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria = 7 ORDER BY trimestre DESC";
                 $resultado_sql = $conn->query($sql);
                 while($row_sql = $resultado_sql->fetch_assoc()){
+                  $categoria = $row_sql['subcategoria'];
+    
+                  $sqlCat = "SELECT * FROM categoria WHERE id = '$categoria'";
+                  $resultadoCat = $conn->query($sqlCat);
+                  $rowCat = $resultadoCat->fetch_assoc();
+                  $catFinal = $rowCat['categoria'];
 
            
                   echo '
                   <div class="row">
                         <div class="col-4 text-center text-dark border">
-                        '.$row_sql['subcategoria'].'
+                        '.$catFinal.'
                         </div>
                         <div class="col-4 text-center text-dark border">
                         <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
@@ -246,12 +258,18 @@ else if ($topico == 3){
                                   $sql = "SELECT * FROM archivo WHERE annio = $annio AND subcategoria BETWEEN 8 AND 13";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
+                                    $categoria = $row_sql['subcategoria'];
+    
+                                    $sqlCat = "SELECT * FROM categoria WHERE id = '$categoria'";
+                                    $resultadoCat = $conn->query($sqlCat);
+                                    $rowCat = $resultadoCat->fetch_assoc();
+                                    $catFinal = $rowCat['categoria'];
 
                              
                                     echo '
                                     <div class="row">
                                           <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['subcategoria'].'
+                                          '.$catFinal.'
                                           </div>
                                           <div class="col-4 text-center text-dark border">
                                           <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
@@ -318,12 +336,17 @@ else if($topico == 4){
                                   $sql = "SELECT * FROM archivo WHERE annio = $annio AND trimestre = '$i' AND subcategoria = 14 ORDER BY trimestre DESC";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
-
+                                    $categoria = $row_sql['subcategoria'];
+    
+                                    $sqlCat = "SELECT * FROM categoria WHERE id = '$categoria'";
+                                    $resultadoCat = $conn->query($sqlCat);
+                                    $rowCat = $resultadoCat->fetch_assoc();
+                                    $catFinal = $rowCat['categoria'];
                              
                                     echo '
                                     <div class="row">
                                           <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['subcategoria'].'
+                                          '.$catFinal.'
                                           </div>
                                           <div class="col-4 text-center text-dark border">
                                           <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
@@ -390,12 +413,17 @@ else if($topico == 5){
                                   $sql = "SELECT * FROM archivo WHERE annio = $annio AND subcategoria = 15";
                                   $resultado_sql = $conn->query($sql);
                                   while($row_sql = $resultado_sql->fetch_assoc()){
-
+                                    $categoria = $row_sql['subcategoria'];
+    
+                                    $sqlCat = "SELECT * FROM categoria WHERE id = '$categoria'";
+                                    $resultadoCat = $conn->query($sqlCat);
+                                    $rowCat = $resultadoCat->fetch_assoc();
+                                    $catFinal = $rowCat['categoria'];
                              
                                     echo '
                                     <div class="row">
                                           <div class="col-4 text-center text-dark border">
-                                          '.$row_sql['subcategoria'].'
+                                          '.$catFinal.'
                                           </div>
                                           <div class="col-4 text-center text-dark border">
                                           <a href="docs/'.$row_sql['documento'].'" style="text-decoration:none" target="_blank">
