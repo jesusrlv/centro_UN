@@ -17,6 +17,9 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="js/script.js"></script>
 
     <style>
 
@@ -51,7 +54,7 @@
     <title>Rendición de cuentas | INJUVENTUD</title>
   </head>
   
-  <body>
+  <body onload="annio()">
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
@@ -143,9 +146,35 @@
       </div>
         <div class="container px-4 py-5" id="hanging-icons">
           <h2 class="pb-2 border-bottom" style="color:#b14947 ;"><strong><svg class="bi text-light" width="1em" height="1em"><use xlink:href="#money" style="color:#b14947 ;"/></svg> Estados financieros</strong></h2>
-          <div class="row g-5 py-5 row-cols-1 row-cols-lg-3">
+          <p class="text-secondary">Sección para consultar los estados financieros 2015 - 2021.</p>
 
-            <div class="col d-flex align-items-start rounded">
+          <div class="row">
+            <input type="text" value="1" id="topico" hidden>
+            <div class="col">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="selectAnnio">Año</label>
+                <select class="form-select" id="selectAnnio">
+                  
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="trimestreFront" id="trimestre">Trimestre</label>
+                <select class="form-select" id="trimestreFront" onchange="consultaTopicos()">
+                  <option selected value="">Selecciona ...</option>
+                  <option value="1">Primero</option>
+                  <option value="2">Segundo</option>
+                  <option value="3">Tercero</option>
+                  <option value="4">Cuarto</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-5 py-5 row-cols-1 row-cols-lg-3" id="cardsTopicos">
+
+            <!-- <div class="col d-flex align-items-start rounded">
               <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;">
                 <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#money"/></svg>
               </div>
@@ -156,7 +185,7 @@
                   <i class="bi bi-check-circle-fill"></i> Revisar
                 </a>
               </div>
-            </div>
+            </div> -->
             
           </div>
         </div>
