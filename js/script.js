@@ -1,3 +1,7 @@
+function cargando(){
+    
+}
+
 function annio(){
     $.ajax({
         type: "POST",
