@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 01-12-2023 a las 02:53:15
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-12-2023 a las 19:29:28
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `annio` (
   `id` int(11) NOT NULL,
-  `annio` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+  `annio` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -58,10 +58,10 @@ CREATE TABLE `archivo` (
   `fecha` datetime NOT NULL,
   `annio` int(11) NOT NULL,
   `trimestre` int(11) NOT NULL,
-  `categoria` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `subcategoria` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `documento` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `usr_ext` int(11) DEFAULT NULL
+  `categoria` varchar(50) NOT NULL,
+  `subcategoria` varchar(50) DEFAULT NULL,
+  `documento` varchar(150) NOT NULL,
+  `usr_ext` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -69,43 +69,28 @@ CREATE TABLE `archivo` (
 --
 
 INSERT INTO `archivo` (`id`, `fecha`, `annio`, `trimestre`, `categoria`, `subcategoria`, `documento`, `usr_ext`) VALUES
-(1, '2022-12-01 16:16:40', 2021, 2, '1', 'Información programática', '_2021_2_1_Información programática.css', NULL),
-(2, '2022-12-01 16:18:35', 2023, 1, '1', 'Información programática', '2023_1_1_Información programática.php', NULL),
-(3, '2022-12-01 16:18:50', 2023, 1, '1', 'Información programática', '2023_1_1_Información programática.php', NULL),
-(4, '2022-12-01 16:19:04', 2023, 1, '1', 'Información programática', '2023_1_1_Información programática.php', NULL),
-(5, '2022-12-01 16:19:32', 2023, 1, '1', 'Información programática', '2023_1_1_Información programática.php', NULL),
-(6, '2022-12-01 16:19:34', 2023, 1, '1', 'Información programática', '2023_1_1_Información programática.php', NULL),
-(7, '2022-12-01 16:19:38', 2023, 1, '1', 'Información programática', '2023_1_1_Información programática.php', NULL),
-(8, '2022-12-01 16:20:11', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(9, '2022-12-01 16:21:04', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(10, '2022-12-01 16:21:08', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(11, '2022-12-01 16:21:46', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(12, '2022-12-01 16:22:53', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(13, '2022-12-01 16:22:56', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(14, '2022-12-01 16:23:17', 2024, 1, '1', 'Información presupuetaria', '2024_1_1_Información presupuetaria.css', NULL),
-(15, '2022-12-01 16:23:28', 2018, 2, '1', 'Información contable', '2018_2_1_Información contable.css', NULL),
-(16, '2022-12-01 16:25:39', 2018, 2, '1', 'Información contable', '2018_2_1_Información contable.css', NULL),
-(17, '2022-12-01 16:25:52', 2018, 2, '1', 'Información contable', '2018_2_1_Información contable.css', NULL),
-(18, '2022-12-01 16:29:36', 2018, 2, '1', 'Información contable', '2018_2_1_Información contable.css', NULL),
-(19, '2022-12-01 16:29:59', 2018, 2, '1', 'Información contable', '2018_2_1_Información contable.css', NULL),
-(20, '2022-12-01 16:30:23', 2018, 2, '1', 'Información contable', '2018_2_1_Información contable.css', NULL),
-(21, '2023-11-24 12:23:08', 2024, 2, '1', 'Categoría...', '2024_2_1_Categoría....pdf', NULL),
-(22, '2023-11-24 14:31:33', 2015, 2, '1', 'Información programática', '2015_2_1_Información programática.pdf', NULL),
-(23, '2023-11-24 14:31:51', 2015, 2, '1', 'Información programática', '2015_2_1_Información programática.pdf', NULL),
-(24, '2023-11-24 14:32:50', 2015, 2, '1', 'Notas a los estados financieros', '2015_2_1_Notas a los estados financieros.pdf', NULL),
-(25, '2023-11-24 14:35:18', 2016, 1, '1', 'Notas a los estados financieros', '2016_1_1_Notas a los estados financieros.pdf', 1),
-(26, '2023-11-24 14:37:41', 2016, 1, '1', 'Notas a los estados financieros', '2016_1_1_Notas a los estados financieros.pdf', 1),
-(27, '2023-11-24 14:42:39', 2016, 1, '1', 'Notas a los estados financieros', '2016_1_1_Notas a los estados financieros.pdf', 1),
-(28, '2023-11-24 14:42:42', 2016, 1, '1', 'Notas a los estados financieros', '2016_1_1_Notas a los estados financieros.pdf', 1),
-(29, '2023-11-24 15:35:51', 2016, 2, '1', 'Información programática', '2016_2_1_Información programática.pdf', 1),
-(30, '2023-11-24 15:38:57', 2024, 4, '1', 'Información contable', '2024_4_1_Información contable.pdf', 1),
-(31, '2023-11-24 15:39:11', 2024, 4, '1', 'Información contable', '2024_4_1_Información contable.pdf', 1),
-(32, '2023-11-24 15:42:58', 2024, 4, '1', 'Información contable', '2024_4_1_Información contable.pdf', 1),
-(33, '2023-11-24 15:59:44', 2016, 3, '1', 'Información programática', '2016_3_1_Información programática.', 1),
-(34, '2023-11-24 16:02:33', 2024, 4, '1', 'Indicadores de postura financiera', '2024_4_1_Indicadores de postura financiera.', 1),
-(35, '2023-11-24 16:08:45', 2024, 1, '1', 'Indicadores_de_postura_financiera', '2024_1_1_Indicadores_de_postura_financiera.', 1),
-(36, '2023-11-24 16:13:06', 2024, 3, '1', '5', '2024_3_1_5.', 1),
-(37, '2023-11-24 16:14:28', 2015, 1, '1', '1', '2015_1_1_1.pdf', 1);
+(1, '2023-12-04 22:55:58', 2024, 1, '1', '1', 'usr1_2024_1_1_1.pdf', 'usr1'),
+(2, '2023-12-04 22:58:38', 2024, 1, '1', '2', 'usr1_2024_1_1_2.pdf', 'usr1'),
+(3, '2023-12-04 22:59:35', 2024, 1, '1', '3', 'usr1_2024_1_1_3.pdf', 'usr1'),
+(4, '2023-12-04 23:01:19', 2024, 1, '1', '4', 'usr1_2024_1_1_4.pdf', 'usr1'),
+(5, '2023-12-04 23:03:34', 2024, 1, '1', '5', 'usr1_2024_1_1_5.pdf', 'usr1'),
+(6, '2023-12-04 23:04:00', 2024, 1, '1', '6', 'usr1_2024_1_1_6.pdf', 'usr1'),
+(7, '2023-12-04 23:05:14', 2024, 2, '1', '6', 'usr1_2024_2_1_6.pdf', 'usr1'),
+(8, '2023-12-04 23:09:25', 2024, 1, '1', '7', 'usr1_2024_1_1_7.pdf', 'usr1'),
+(9, '2023-12-04 23:36:14', 2024, 0, '3', '8', '2024_0_3_8.pdf', 'usr1'),
+(10, '2023-12-04 23:36:38', 2024, 0, '3', '9', '2024_0_3_9.pdf', 'usr1'),
+(11, '2023-12-04 23:37:08', 2023, 0, '3', '9', '2023_0_3_9.pdf', 'usr1'),
+(12, '2023-12-04 23:55:37', 2024, 1, '4', '15', 'usr1_2024_1_4_15.pdf', 'usr1'),
+(13, '2023-12-04 23:59:25', 2024, 1, '4', '14', 'usr1_2024_1_4_14.pdf', 'usr1'),
+(14, '2023-12-05 00:05:18', 2024, 1, '4', '14', 'usr1_2024_1_4_14.pdf', 'usr1'),
+(15, '2023-12-05 00:15:49', 2024, 0, '3', '10', '2024_0_3_10.pdf', 'usr1'),
+(16, '2023-12-05 00:18:29', 2024, 0, '3', '8', 'usr1_2024_0_3_8.pdf', 'usr1'),
+(17, '2023-12-05 00:21:16', 2024, 0, '3', '10', 'usr1_2024_0_3_10.pdf', 'usr1'),
+(18, '2023-12-05 00:21:51', 2024, 1, '4', '14', 'usr1_2024_1_4_14.pdf', 'usr1'),
+(19, '2023-12-05 00:27:05', 2024, 4, '1', '6', 'usr1_2024_4_1_6.pdf', 'usr1'),
+(20, '2023-12-05 23:30:29', 2024, 0, '5', '15', '1_2024_5_15.pdf', '1'),
+(21, '2023-12-05 23:41:58', 2024, 0, '5', '15', 'usr1_2024_5_15.pdf', 'usr1'),
+(22, '2023-12-12 15:33:20', 2024, 4, '1', '1', '1_2024_4_1_1.pdf', '1');
 
 -- --------------------------------------------------------
 
@@ -115,7 +100,7 @@ INSERT INTO `archivo` (`id`, `fecha`, `annio`, `trimestre`, `categoria`, `subcat
 
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
-  `categoria` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` varchar(50) NOT NULL,
   `topico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -144,14 +129,26 @@ INSERT INTO `categoria` (`id`, `categoria`, `topico`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subcategoria`
+-- Estructura de tabla para la tabla `topicos`
 --
 
-CREATE TABLE `subcategoria` (
+CREATE TABLE `topicos` (
   `id` int(11) NOT NULL,
-  `subcategoria` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `categoria` int(11) NOT NULL
+  `topico` varchar(50) NOT NULL,
+  `img` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `topicos`
+--
+
+INSERT INTO `topicos` (`id`, `topico`, `img`) VALUES
+(1, 'Estados financieros', '<svg class=\"bi\" width=\"1em\" height=\"1em\"><use xlink:href=\"#money\"/></svg>'),
+(2, 'Avance de gestión', '<svg class=\"bi\" width=\"1em\" height=\"1em\"><use xlink:href=\"#slider\"/></svg>'),
+(3, 'Cuenta pública', '<svg class=\"bi\" width=\"1em\" height=\"1em\"><use xlink:href=\"#clipboard\"/></svg>'),
+(4, 'Ayudas y subsidios', '<svg class=\"bi\" width=\"1em\" height=\"1em\"><use xlink:href=\"#pig\"/></svg>'),
+(5, 'Manual de contabilidad', '<svg class=\"bi\" width=\"1em\" height=\"1em\"><use xlink:href=\"#book\"/></svg>'),
+(6, 'Recursos ejercidos', '<svg class=\"bi\" width=\"1em\" height=\"1em\"><use xlink:href=\"#money2\"/></svg>');
 
 -- --------------------------------------------------------
 
@@ -161,8 +158,8 @@ CREATE TABLE `subcategoria` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `usr` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `pwd` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `usr` varchar(30) NOT NULL,
+  `pwd` varchar(30) NOT NULL,
   `perfil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -196,9 +193,9 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `subcategoria`
+-- Indices de la tabla `topicos`
 --
-ALTER TABLE `subcategoria`
+ALTER TABLE `topicos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -221,7 +218,7 @@ ALTER TABLE `annio`
 -- AUTO_INCREMENT de la tabla `archivo`
 --
 ALTER TABLE `archivo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -230,10 +227,10 @@ ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `subcategoria`
+-- AUTO_INCREMENT de la tabla `topicos`
 --
-ALTER TABLE `subcategoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `topicos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
