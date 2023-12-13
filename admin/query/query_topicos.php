@@ -24,7 +24,7 @@ include('../prcd/conn.php');
                             <div>
                               <h2 class="" style="color:#b14947 ;"><strong>'.$rowCat['categoria'].'</strong></h2>
                               <p class="text-secondary">Sección para consultar los estados financieros 2015 - 2021.</p>
-                              <a href="#" class="btn btn-outline-secondary">
+                              <a href="admin/docs/'.$row_sql['documento'].'" target="_blank" class="btn btn-outline-secondary">
                                 <i class="bi bi-check-circle-fill"></i> Revisar
                               </a>
                             </div>

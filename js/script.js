@@ -1,6 +1,38 @@
-function cargando(){
-    
-}
+// abrir modal al iniciar
+$(document).ready(function(){
+    // Show the Modal on load
+    $("#modalOnload").modal("show");
+    $.ajax({
+        type: "POST",
+        url: "admin/query/query_topicos2.php",
+        dataType: "html",
+        success: function(data) {
+            $('#selectTopicoModal').fadeIn(1000).html(data)
+        }
+    });
+    $("#buscarTopico" ).on( "click", function() {
+        var topicoVal = $('#selectTopicoModal').val();
+        if(topicoVal==""){
+            alert("Selecciona una opción");
+        }
+        else{
+            $('#topico').val(topicoVal);
+            $.ajax({
+                type: "POST",
+                data:{
+                    topicoVal:topicoVal
+                },
+                url: "admin/query/query_topicos3.php",
+                dataType: "html",
+                success: function(data) {
+                    $('#spanTopico').fadeIn(1000).html(data);
+                    $("#modalOnload").modal("hide");
+
+                }
+            });
+        }
+    } );
+});
 
 function annio(){
     $.ajax({
@@ -82,4 +114,12 @@ function consultaTopicos(){
             });
         }
     }
+}
+
+function limpiarTodo(){
+    document.getElementById('selectAnnio').value="";
+    document.getElementById('trimestreFront').value="";
+    document.getElementById('spanTopico').innerHTML="";
+    document.getElementById('cardsTopicos').innerHTML="";
+    document.getElementById('selectTopicoModal').value="";
 }
