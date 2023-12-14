@@ -68,6 +68,7 @@ function consultaTopicos(){
                 }
             });
         }
+    
         else if(topico==2){
             $.ajax({
                 type: "POST",
