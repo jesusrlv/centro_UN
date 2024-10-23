@@ -3,7 +3,7 @@
     $sqlTopicos ="SELECT * FROM topicos ORDER BY id ASC";
     $resultado = $conn->query($sqlTopicos);
     echo'
-        <option value="" selected>Selecciona ...</option>
+        <option value="" selected>Selecciona categoría</option>
     ';
     while($rowTopicos=$resultado->fetch_assoc()){
         echo'
