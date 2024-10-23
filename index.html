@@ -16,15 +16,24 @@
     <link rel="stylesheet" href="css/features.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script src="js/script.js"></script>
 
     <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+        
         body{
            
           font-family: 'Aboreto', cursive;
           font-family: 'Montserrat', sans-serif;
+          background:url(img/fondo_abstract.jpg);
+          background-repeat: no-repeat;
+          width: 100%;
+          background-size: cover;
         }
 
         .bd-placeholder-img {
@@ -50,7 +59,7 @@
     <title>Rendición de cuentas | INJUVENTUD</title>
   </head>
   
-  <body>
+  <body onload="annio()">
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
@@ -124,9 +133,8 @@
                   <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-pie-chart-fill"></i><small> Manual de contabilidad</small></a></li>
                   <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-cash-coin"></i><small> Recursos ejercidos</small></a></li>
                   </ul>
-              <!-- </div>
-                <a href="#" class="btn btn-outline-danger" type="submit"><i class="bi bi-key-fill"></i> Acceso</a>
-            </div> -->
+                </div>
+              </div>
           </nav>
           <hr>
         </div>
@@ -142,93 +150,35 @@
         </div>
       </div>
         <div class="container px-4 py-5" id="hanging-icons">
-          <h2 class="pb-2 border-bottom text-secondary"><strong><i class="bi bi-app-indicator"></i> Secciones</strong></h2>
-          <div class="row g-5 py-5 row-cols-1 row-cols-lg-3">
+          <h2 class="pb-2 border-bottom" style="color:#b14947 ;"><strong><span id="spanTopico"></span> <button class="btn btn-outline-dark btn-sm" style="color:#b14947;" data-bs-toggle="modal" data-bs-target="#modalOnload" onclick="limpiarTodo()">Cambiar</button></strong></h2>
+          <p class="text-secondary">Sección de consulta 2015 - 2021.</p>
 
-            <div class="col d-flex align-items-start rounded">
-              <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#money"/></svg>
-              </div>
-              <div>
-                <h2 class="" style="color:#b14947 ;"><strong>Estados financieros</strong></h2>
-                <p class="text-secondary">Sección para consultar los estados financieros 2015 - 2021.</p>
-                <a href="01_estados_financieros.html" class="btn btn-outline-secondary">
-                  <i class="bi bi-check-circle-fill"></i> Revisar
-                </a>
+          <div class="row">
+            <input type="text" id="topico" hidden>
+            <div class="col">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="selectAnnio">Año</label>
+                <select class="form-select" id="selectAnnio">
+                  
+                </select>
               </div>
             </div>
-            <div class="col d-flex align-items-start">
-              <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#slider"/></svg>
-              </div>
-              <div>
-                <h2 class="" style="color:#b14947 ;"><strong>Avance de gestión</strong></h2>
-                <p class="text-secondary">Sección para consultar los avances de gestión 2015 - 2021.</p>
-                <a href="02_avance_gestion.html" class="btn btn-outline-secondary">
-                  <i class="bi bi-check-circle-fill"></i> Revisar
-                </a>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#clipboard"/></svg>
-              </div>
-              <div>
-                <h2 class="" style="color:#b14947 ;"><strong>Cuenta pública</strong></h2>
-                <p class="text-secondary">Sección para consultar las cuentas públicas 2015 - 2021.</p>
-                <a href="03_cuenta_publica.html" class="btn btn-outline-secondary">
-                  <i class="bi bi-check-circle-fill"></i> Revisar
-                </a>
+            <div class="col">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="trimestreFront" id="trimestre">Trimestre</label>
+                <select class="form-select" id="trimestreFront" onchange="consultaTopicos()">
+                  <option selected value="">Selecciona ...</option>
+                  <option value="1">Primero</option>
+                  <option value="2">Segundo</option>
+                  <option value="3">Tercero</option>
+                  <option value="4">Cuarto</option>
+                </select>
               </div>
             </div>
-            <div class="col d-flex align-items-start">
-              <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#pig"/></svg>
-              </div>
-              <div>
-                <h2 class="" style="color:#b14947 ;"><strong>Ayudas y subsidios</strong></h2>
-                <p class="text-secondary">Descargar manual de contabilidad 2015 - 2021.</p>
-                <a href="04_ayudas_subsidios.html" class="btn btn-outline-secondary">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> Descargar
-                </a>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#book"/></svg>
-              </div>
-              <div>
-                <h2 class="" style="color:#b14947 ;"><strong>Manual de contabilidad</strong></h2>
-                <p class="text-secondary">Descargar manual de contabilidad 2015 - 2021.</p>
-                <a href="05_manual_contabilidad.html" class="btn btn-outline-secondary">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> Descargar
-                </a>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start">
-              <div class="icon-square text-dark flex-shrink-0 me-3" style="background-color:#b14947;box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#money2"/></svg>
-              </div>
-              <div>
-                <h2 class="" style="color:#b14947 ;"><strong>Recursos ejercidos</strong></h2>
-                <p class="text-secondary">Descargar manual de contabilidad 2015 - 2021.</p>
-                <a href="06_recursos_ejercidos.html" class="btn btn-outline-secondary">
-                  <i class="bi bi-file-earmark-pdf-fill"></i> Descargar
-                </a>
-              </div>
-            </div>
-            <div class="col d-flex align-items-start bg-light rounded-3" style="padding:15px;">
-              <div class="icon-square text-dark flex-shrink-0 me-3 bg-primary">
-                <svg class="bi text-light" width="1em" height="1em"><use xlink:href="#dash"/></svg>
-              </div>
-              <div>
-                <h2>Acceso</h2>
-                <p>Administrar elementos</p>
-                <a href="acceso.html" class="btn btn-outline-primary">
-                  <i class="bi bi-arrow-left-circle-fill"></i> Ingresar
-                </a>
-              </div>
-            </div>
+          </div>
+
+          <div class="row g-5 py-5 row-cols-1 row-cols-lg-3" id="cardsTopicos">
+
           </div>
         </div>
 
@@ -244,7 +194,7 @@
           <!-- Column -->
         </div>
         <div class="col text-center text-secondary">
-          © Derechos reservados <br> <strong>Instituto de la Juventud del estado de Zacatecas</strong>
+          © Derechos reservados <br> <strong>Instituto de la Juventud del Estado de Zacatecas</strong>
         </div>
         <div class="col text-center">
           <!-- Column -->
@@ -252,5 +202,33 @@
       </div>
     </div>
   </footer>
+
+  <!-- modales -->
+  <div class="modal fade" id="modalOnload" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Rendición de cuentas</h1>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <h3>¿Qué deseas buscar?</h3>
+          <hr>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="selectTopicoModal">Selecciona categoría</label>
+            <select class="form-select" id="selectTopicoModal">
+              
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <a href="./" type="button" class="btn btn-danger">Regresar</a>
+          <button type="button" class="btn btn-primary" id="buscarTopico">Buscar ...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
   </html>
