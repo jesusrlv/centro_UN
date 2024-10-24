@@ -167,7 +167,7 @@
             <div class="col-md-5 col-sm--12">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="trimestreFront" id="trimestre">Trimestre</label>
-                <select class="form-select" id="trimestreFront" onchange="consultaTopicos()">
+                <select class="form-select" id="trimestreFront">
                   <option selected value="">Selecciona ...</option>
                   <option value="1">Primero</option>
                   <option value="2">Segundo</option>
@@ -178,7 +178,7 @@
             </div>
             <div class="col-md-2 col-sm--12">
               <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" id="btnSearchT">Buscar</button>
+                <button class="btn btn-primary" type="button" id="btnSearchT" onclick="consultaTopicos()">Buscar</button>
               </div>
             </div>
           </div>

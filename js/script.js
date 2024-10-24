@@ -21,18 +21,21 @@ $(document).ready(function(){
             if(topicoVal == 2 || topicoVal == 3){
                 document.getElementById("trimestreFront").disabled = true; 
                 document.getElementById("btnSearchT").disabled = false;
-                // document.getElementById("trimestreFront").value = 0;
+                document.getElementById("trimestreFront").value = 0;
             }
             else if(topicoVal == 5 || topicoVal == 6){
                  document.getElementById("selectAnnio").disabled = true;
                  document.getElementById("trimestreFront").disabled = true;
                  document.getElementById("btnSearchT").disabled = true;
-                // document.getElementById("trimestreFront").value = 0;
+                 document.getElementById("selectAnnio").value = 0;
+                 document.getElementById("trimestreFront").value = 0;
             }
             else{
                 document.getElementById("selectAnnio").disabled = false;
                 document.getElementById("trimestreFront").disabled = false;
                 document.getElementById("btnSearchT").disabled = false;
+                document.getElementById("selectAnnio").value = "";
+                 document.getElementById("trimestreFront").value = "";
             }
             
             $('#topico').val(topicoVal);
@@ -70,11 +73,19 @@ function consultaTopicos(){
     var trimestre = document.getElementById('trimestreFront').value;
 
     
-
-    if (annio == "" || trimestre =="" ){
-        alert("Debes seleccionar el año y trimestre");
-       }
-    else{
+    if(topico == 2 || topico == 3){
+        if (annio == ""){
+            alert("Debes seleccionar el año y trimestre");
+            return;
+        }
+    }
+    else if(topico == 1 || topico == 4){
+        if (annio == "" || trimestre == "" ){
+            alert("Debes seleccionar el año y trimestre");
+            return;
+        }
+    }
+    //else{
         
             $.ajax({
                 type: "POST",
@@ -181,7 +192,8 @@ function consultaTopicos(){
         //         }
         //     });
         // }
-    }
+
+   //} //else
 }
 
 function limpiarTodo(){
