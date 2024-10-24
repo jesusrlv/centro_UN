@@ -53,7 +53,7 @@ function consultaTopicos(){
         alert("Debes seleccionar el año y trimestre");
        }
     else{
-        if(topico = 1){
+        
             $.ajax({
                 type: "POST",
                 url: "admin/query/query_topicos.php",
@@ -67,53 +67,98 @@ function consultaTopicos(){
                     $('#cardsTopicos').fadeIn(1000).html(data)
                 }
             });
-        }
+
+        // if(topico == 1){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "admin/query/query_topicos.php",
+        //         dataType: "html",
+        //         data: {
+        //             annio:annio,
+        //             trimestre:trimestre,
+        //             topico:topico
+        //         },
+        //         success: function(data) {
+        //             $('#cardsTopicos').fadeIn(1000).html(data)
+        //         }
+        //     });
+        // }
     
-        else if(topico==2){
-            $.ajax({
-                type: "POST",
-                url: "admin/query/query_topicos.php",
-                dataType: "html",
-                data: {
-                    annio:annio,
-                    trimestre:trimestre,
-                    topico:topico
-                },
-                success: function(data) {
-                    $('#cardsTopicos').fadeIn(1000).html(data)
-                }
-            });
-        }
-        else if(topico==3){
-            $.ajax({
-                type: "POST",
-                url: "admin/query/query_topicos.php",
-                dataType: "html",
-                data: {
-                    annio:annio,
-                    trimestre:trimestre,
-                    topico:topico
-                },
-                success: function(data) {
-                    $('#cardsTopicos').fadeIn(1000).html(data)
-                }
-            });
-        }
-        else if(topico==4){
-            $.ajax({
-                type: "POST",
-                url: "admin/query/query_topicos.php",
-                dataType: "html",
-                data: {
-                    annio:annio,
-                    trimestre:trimestre,
-                    topico:topico
-                },
-                success: function(data) {
-                    $('#cardsTopicos').fadeIn(1000).html(data)
-                }
-            });
-        }
+        // else if(topico==2){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "admin/query/query_topicos.php",
+        //         dataType: "html",
+        //         data: {
+        //             annio:annio,
+        //             trimestre:trimestre,
+        //             topico:topico
+        //         },
+        //         success: function(data) {
+        //             $('#cardsTopicos').fadeIn(1000).html(data)
+        //         }
+        //     });
+        // }
+        // else if(topico==3){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "admin/query/query_topicos.php",
+        //         dataType: "html",
+        //         data: {
+        //             annio:annio,
+        //             trimestre:trimestre,
+        //             topico:topico
+        //         },
+        //         success: function(data) {
+        //             $('#cardsTopicos').fadeIn(1000).html(data)
+        //         }
+        //     });
+        // }
+        // else if(topico==4){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "admin/query/query_topicos.php",
+        //         dataType: "html",
+        //         data: {
+        //             annio:annio,
+        //             trimestre:trimestre,
+        //             topico:topico
+        //         },
+        //         success: function(data) {
+        //             $('#cardsTopicos').fadeIn(1000).html(data)
+        //         }
+        //     });
+        // }
+        // else if(topico==5){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "admin/query/query_topicos.php",
+        //         dataType: "html",
+        //         data: {
+        //             annio:annio,
+        //             trimestre:trimestre,
+        //             topico:topico
+        //         },
+        //         success: function(data) {
+        //             $('#cardsTopicos').fadeIn(1000).html(data)
+        //         }
+        //     });
+        // }
+        // else if(topico==6){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "admin/query/query_topicos.php",
+        //         dataType: "html",
+        //         data: {
+        //             annio:annio,
+        //             trimestre:trimestre,
+        //             topico:topico
+        //         },
+        //         success: function(data) {
+        //             $('#cardsTopicos').fadeIn(1000).html(data)
+        //         }
+        //     });
+        // }
     }
 }
 
