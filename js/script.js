@@ -15,7 +15,26 @@ $(document).ready(function(){
         if(topicoVal==""){
             alert("Selecciona una opción");
         }
+        
         else{
+
+            if(topicoVal == 2 || topicoVal == 3){
+                document.getElementById("trimestreFront").disabled = true; 
+                document.getElementById("btnSearchT").disabled = false;
+                // document.getElementById("trimestreFront").value = 0;
+            }
+            else if(topicoVal == 5 || topicoVal == 6){
+                 document.getElementById("selectAnnio").disabled = true;
+                 document.getElementById("trimestreFront").disabled = true;
+                 document.getElementById("btnSearchT").disabled = true;
+                // document.getElementById("trimestreFront").value = 0;
+            }
+            else{
+                document.getElementById("selectAnnio").disabled = false;
+                document.getElementById("trimestreFront").disabled = false;
+                document.getElementById("btnSearchT").disabled = false;
+            }
+            
             $('#topico').val(topicoVal);
             $.ajax({
                 type: "POST",
@@ -49,6 +68,9 @@ function consultaTopicos(){
     var topico = document.getElementById('topico').value;
     var annio = document.getElementById('selectAnnio').value;
     var trimestre = document.getElementById('trimestreFront').value;
+
+    
+
     if (annio == "" || trimestre =="" ){
         alert("Debes seleccionar el año y trimestre");
        }
