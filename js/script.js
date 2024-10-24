@@ -29,6 +29,7 @@ $(document).ready(function(){
                  document.getElementById("btnSearchT").disabled = true;
                  document.getElementById("selectAnnio").value = 0;
                  document.getElementById("trimestreFront").value = 0;
+                 consultaTopicos();
             }
             else{
                 document.getElementById("selectAnnio").disabled = false;
@@ -36,6 +37,7 @@ $(document).ready(function(){
                 document.getElementById("btnSearchT").disabled = false;
                 document.getElementById("selectAnnio").value = "";
                  document.getElementById("trimestreFront").value = "";
+                
             }
             
             $('#topico').val(topicoVal);
