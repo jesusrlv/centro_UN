@@ -34,10 +34,10 @@
     $archivo_ext=$_FILES['file1']['name'];
     $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
 
-    if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$id.'_'.$annio.'_'.$trimestre.'_'.$categoria.'_'.$subcategoria.'.'.$extension)){
+    if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../docs/".$annio.'_'.$trimestre.'_'.$categoria.'_'.$subcategoria.'.'.$extension)){
         // echo "$fileName carga completa";     
         
-        $ruta = $id . '_' . $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
+        $ruta = $annio .'_'. $trimestre .'_'.$categoria.'_'.$subcategoria.'.'.$extension;
 
         $sql = "INSERT INTO archivo(
             fecha,
